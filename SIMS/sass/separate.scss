@@ -1,0 +1,385 @@
+//Removed Shadow
+textarea, input,button{ outline: 0 !important; -webkit-appearance: none!important;}
+.dropdown-menu li a 
+{
+outline: 0 !important;
+-webkit-appearance: none!important;
+}
+
+body{
+-webkit-font-smoothing: antialiased;
+}
+
+#header-area {
+padding: 7px;
+background: $green-base;
+}
+
+#page-header{	
+background: $web-gray-base;
+width:100%;	
+@extend .pull-left;
+min-height:$header-height;
+}
+
+.signin-area{
+h3{
+&:first-child {
+font-family: $proximanova-light;
+margin: 25px 0 !important;
+
+}
+font-family: $proximanova-light;
+margin:22.7px 0 !important;
+text-align:center;
+text-transform: uppercase;
+color: $black-color;
+font-size: 16px;
+opacity: 50;
+}
+}
+
+.auth-wrapper-titles{
+	float:left;
+	width:100%;
+
+	ul{
+		border-top:1px solid $gray-lighter;
+		border-bottom:1px solid $gray-lighter;
+		margin:0px;
+
+		li{
+			@extend .col-md-4;
+			border-right:1px solid $gray-lighter;
+			box-sizing: border-box;
+			padding:0px;
+			text-transform:uppercase;
+
+			a{
+				padding:28px 10px 0;
+				float:left;
+				height: 50px;
+				margin-right:0px;	
+				width:100%;
+				font-size:12px;
+				color:$black-color;
+				text-decoration:none;
+				font-family: $proximanova-regular; 
+			}
+		}
+		li:last-child{
+		border:none;
+		}
+	}
+	.col-md-12{
+		padding:0px;
+	}
+	.active a{ 
+		background:#F2FAFD; 
+		border:solid #17A1E5 1px;
+		color:#17A1E5; 
+		font-family: $proximanova-regular;
+	}
+}
+.wrapper-titles{
+	float:left;
+	width:100%;
+
+	ul{
+		border-top:1px solid $gray-lighter;
+		border-bottom:1px solid $gray-lighter;
+		margin:0px;
+
+		li{
+			@extend .col-md-6;
+			border-right:1px solid $gray-lighter;
+			box-sizing: border-box;
+			padding:0px;
+			text-transform:uppercase;
+			a{
+				padding:13px 10px 0;
+				float:left;
+				height: 50px;
+				margin-right:0px;	
+				width:100%;
+				font-size:12px;
+				color:$black-color;
+				text-decoration:none;
+				font-family: $proximanova-regular; 
+			}
+		}
+		li:last-child{
+		border:none;
+		}
+	}
+	.col-md-12{
+		padding:0px;
+	}
+	.active a{ 
+		background:#F2FAFD; 
+		border:solid #17A1E5 1px;
+		color:#17A1E5; 
+		font-family: $proximanova-regular;
+	}
+}
+ 
+.bootstrap-select {
+.filter-option {
+color:$base-color!important;
+} 
+}
+
+.signin-form{	
+float:left;
+width:100%;
+
+.form-group{
+@extend .col-md-6;
+padding: 5px 8px !important;
+border:1px solid $gray-lighter;
+border-left:0px;
+margin-bottom:0px;
+label{
+
+font-weight:normal !important;
+margin:0px !important;
+text-transform:uppercase;
+font-size: 13px;
+color:$black-color;
+}
+&:nth-child(even){
+border-right:0px !important;
+}
+input[type="text"], input[type="email"],input[type="password"] {
+background:#fff; 
+font-family: $proximanova-regular;
+border:none;    
+color: $base-color;    
+font-size: 16px;   
+height: 32px; 
+padding: 7px 0px 0px;   
+width: 100%;
+box-shadow:none;
+}
+
+
+
+
+}
+}
+.footer-txt {
+font-size: 13px;
+}
+.footer-btn {
+text-align: center;
+}
+.auth-signin-btn
+{
+
+border:1px solid $green-base;
+background:#fff;
+color:$green-base;
+text-transform:uppercase;
+font-size: 17px;
+font-weight:600;
+padding: 9px 20px 0 1px;
+border-radius:50px;
+
+img {
+margin-left: -6px;
+margin-right: 11px;
+}
+span 
+{ 
+left: 9px;
+position: relative;
+top: -4px;
+
+}
+
+svg {
+position: relative!important;
+right: -8px!important;
+top: -2px!important;
+}
+
+&:hover .svgicn  { fill:$black-color; }
+
+}
+
+.auth-page-wrapper
+{
+border: 1px solid rgb(229, 229, 229); 
+border-radius: 10px;
+padding:0px 0px 20px;
+float:left;
+width: 723px;	
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) 
+{
+width:auto!important; 
+}
+
+@media (min-width:$screen-xs-mini) and (max-width:$screen-sm-max)
+{
+width:100%!important; 
+}
+
+}
+
+//Sign Up  Step one CSS
+.signup-form-1{
+float:left;
+width:100%;
+
+.form-group{
+@extend .col-md-3;
+padding: 5px 8px !important;
+border:1px solid $gray-lighter;
+border-left:0px;
+margin-bottom:0px;
+label{
+font-size:13px !important;
+font-weight:normal !important;
+margin:0px !important;
+text-transform:uppercase;
+
+}
+&:last-child{
+border-right:0px !important; 
+}
+input[type="text"], input[type="email"], input[type="password"],textarea{
+background:#fff; 
+border:none;    
+color: $base-color;    
+font-size: 16px;
+height: 31px;
+height: 25px;
+padding: 0px;   
+width: 100%;
+box-shadow:none;
+}
+
+textarea {height: auto!important; resize: none;}
+}
+.col-3 { .form-group {border-bottom:0!important;	} }
+
+
+.wrap-footer {
+clear: both;
+padding-bottom: 1px;
+padding-top: 21px;
+border-top: 1px solid #eeeeee ;
+}
+
+
+h3 {
+padding-top: 24px !important;
+clear: both;
+}
+}
+
+//Sign Up  Step Two CSS
+.signup-form-2{	
+float:left;
+width:100%;
+.form-group{
+@extend .col-md-3;
+padding: 5px 8px !important;
+border:1px solid $gray-lighter;
+border-left:0px;
+border-bottom:0px;		
+margin-bottom:0px;
+label{
+font-size: 13px !important;
+font-weight:normal !important;
+margin:0px !important;
+text-transform:uppercase;
+}
+&:last-child{
+border-right:0px !important; 
+
+}
+input[type="text"], input[type="email"], input[type="password"],textarea{
+background:#fff; 
+border:none;    
+color: $base-color;    
+font-size: 16px;
+height: 25px;
+padding: 0px;    
+width: 100%;
+box-shadow:none;
+outline: none;
+}
+textarea {height: auto!important; resize: none;}
+}
+
+
+.col-12 {
+clear: both;
+padding-bottom: 0;
+padding-top: 21px;
+border-top: 1px solid #eeeeee ;
+}
+
+
+
+}
+
+
+//Divider
+.auth-divider 
+{
+.divider-break 
+{
+border-top: 1px solid rgb(238, 238, 238); 
+clear:both; 
+height:9px;
+}
+
+
+&.col-3
+{
+.form-group:nth-child(4n+4) { border-right:none;}
+}
+
+&.col-6
+{
+.form-group
+{
+@extend .col-md-6;
+border-bottom:0px; 
+}	
+.form-group:nth-child(even) 
+{
+border-right:none !important;
+}
+}
+
+&.col-12
+{
+.form-group
+{
+@extend .col-md-12;
+border-right:none;
+}
+}	
+}
+
+//Footer
+footer {
+font-size: 12px;
+padding-bottom: 12px;
+color:$black-color;
+}
+
+//Media Query
+@media (min-width:$screen-xs-mini) and (max-width:$screen-sm-max)
+{
+.form-group { border-right:none!important; }
+
+//Sign Up Step 2
+.auth-wrapper-titles { ul { li {border-right:0; border-bottom: 1px solid $gray-lighter; overflow:hidden; } } }
+//Sign In
+.signin-form { .footer-txt,.footer-btn  { text-align:center!important;} 
+}
+}

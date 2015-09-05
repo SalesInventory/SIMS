@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WebApp" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Dashboard" sketch:type="MSArtboardGroup" transform="translate(-647.000000, -15.000000)" fill-opacity="0.5" fill="#FFFFFF">
+            <g id="header" sketch:type="MSLayerGroup">
+                <g id="menu" transform="translate(380.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="Schedule" transform="translate(186.000000, 0.000000)">
+                        <path d="M102,17 L103.996405,17 C105.10296,17 106,17.9016273 106,19.0008642 L106,37.9991358 C106,39.1041826 105.110237,40 103.996405,40 L83.0035949,40 C81.89704,40 81,39.0983727 81,37.9991358 L81,19.0008642 C81,17.8958174 81.8897632,17 83.0035949,17 L85,17 L85,17 L85,15.9989566 C85,15.4472481 85.4426603,15 85.9989566,15 L87.0010434,15 C87.5527519,15 88,15.4426603 88,15.9989566 L88,17 L99,17 L99,15.9989566 C99,15.4472481 99.4426603,15 99.9989566,15 L101.001043,15 C101.552752,15 102,15.4426603 102,15.9989566 L102,17 L102,17 Z M82,18.9987461 C82,18.4471539 82.4389178,18 83.0030706,18 L103.996929,18 C104.55091,18 105,18.4386148 105,18.9987461 L105,38.0012539 C105,38.5528461 104.561082,39 103.996929,39 L83.0030706,39 C82.44909,39 82,38.5613852 82,38.0012539 L82,18.9987461 Z M82,22 L105,22 L105,23 L82,23 L82,22 Z M90,26 L92,26 L92,28 L90,28 L90,26 Z M95,26 L97,26 L97,28 L95,28 L95,26 Z M100,26 L102,26 L102,28 L100,28 L100,26 Z M85,30 L87,30 L87,32 L85,32 L85,30 Z M90,30 L92,30 L92,32 L90,32 L90,30 Z M95,30 L97,30 L97,32 L95,32 L95,30 Z M100,30 L102,30 L102,32 L100,32 L100,30 Z M85,34 L87,34 L87,36 L85,36 L85,34 Z M90,34 L92,34 L92,36 L90,36 L90,34 Z M95,34 L97,34 L97,36 L95,36 L95,34 Z" id="icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

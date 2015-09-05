@@ -1,0 +1,138 @@
+﻿
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mstadmin.master.cs" Inherits="ValuePad.admin.master.mstadmin" %>
+
+<%@ Register Src="~/admin/controls/ctlfooter.ascx" TagPrefix="uc1" TagName="ctlfooter" %>
+<%@ Register Src="~/admin/controls/ctlheader.ascx" TagPrefix="uc1" TagName="ctlheader" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Valuepad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <link rel="canonical" href="h" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+    <link href="../../css/auth.css" rel="stylesheet" />
+    <link href="../../css/base.css" rel="stylesheet" />
+    <link href="../../css/rwd-table.min.css?v=5.0.3" rel="stylesheet" />
+    <link href="../../css/valuepad.css" rel="stylesheet" />
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-select.css" rel="stylesheet" />
+    <link href="../../css/ie_base.css" rel="stylesheet" />
+    <link href="../../css/cropbox.css" rel="stylesheet" />
+    <script src='<%=ResolveUrl("~/js/libs/jquery-2.0.2.min.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/plugins/datepicker/bootstrap-datepicker.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/bootstrap.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/bootstrap-select.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/notification/SmartNotification.min.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/commonutility.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/jquery-validate/jquery.validate.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/rwd-table.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/pager.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/plugins/datepicker/timepicki.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/masonry.pkgd.min.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/placeholder-modernizr.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/plugins/slimscroll/jquery.slimscroll.min.js") %>'></script>
+    <script src='<%=ResolveUrl("~/js/crop/jquery.popupoverlay.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/crop/cropbox.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/fbinprofilepic.js")%>'></script>
+    <asp:ContentPlaceHolder ID="cphead" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        input[type=checkbox] {
+            outline: 0 !important;
+            -webkit-appearance: checkbox !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <uc1:ctlheader runat="server" ID="ctlheader" />
+        <div class="clearfix">&nbsp;</div>
+        <div class="col-lg-12 col-el-12 dashboard-left-area">
+            <asp:ContentPlaceHolder ID="cpContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="site-footer">
+        <uc1:ctlfooter runat="server" ID="ctlfooter" />
+    </div>
+    <script type="text/javascript">
+        var BaseURL = "<%= ValuePad.ConfigUtility.BaseURL %>";
+        var ProfileImageURL = "<%= ValuePad.ConfigUtility.Appraiser %>";
+        var AppDocURL = "<%= ValuePad.ConfigUtility.Appraiser %>";
+        checkUserSession();
+        PageSetUpS();
+        //Facebook - Start
+        $(document).ready(function () {
+            var navbar = $('#header-right .navigation').html();
+            if (($(window).innerWidth() < 1199)) {
+                $('#app-navbar').remove();
+                $('#header-right').append(navbar);
+            }
+
+            //Integrated Placeholder
+            if (!Modernizr.input.placeholder) {
+
+                $('[placeholder]').focus(function () {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                        input.removeClass('placeholder');
+                    }
+                }).blur(function () {
+                    var input = $(this);
+                    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                        input.addClass('placeholder');
+                        input.val(input.attr('placeholder'));
+                    }
+                }).blur();
+                $('[placeholder]').parents('form').submit(function () {
+                    $(this).find('[placeholder]').each(function () {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                        }
+                    })
+                });
+
+            }
+
+            //$('.datepicker').datepicker();
+            $('.datepicker').datepickernoConflict({ dateFormat: 'mm/dd/yy' });
+        });
+
+        if (UserID != null) {
+            var params = new Object();
+            params.UserID = UserID;
+            $.ajax({
+                type: "POST",
+                url: BaseURL + 'services/register.asmx/GetUserDataByUserID',
+                data: JSON.stringify(params),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.d > 0) {
+                        ShowProfileImageSetUpPopup();
+                    }
+                },
+                failure: function (xhr, status, error) {
+                    AjaxErrorHandling(status);
+                    //SmallNotification('Unable to proceed, please try later.', -1);
+                },
+                error: function (xhr, status, error) {
+                    AjaxErrorHandling(status);
+                    //SmallNotification('Unable to proceed, please try later.', -1);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

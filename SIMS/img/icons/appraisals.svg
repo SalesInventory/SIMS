@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.1 (9977) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WebApp" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Minimal---Header" sketch:type="MSArtboardGroup" transform="translate(-446.000000, -15.000000)" fill="#FFFFFF" opacity="0.5">
+            <g id="header" sketch:type="MSLayerGroup">
+                <g id="menu" transform="translate(310.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="Appraisals" transform="translate(98.000000, 0.000000)">
+                        <path d="M47.4802328,33.6993209 L54.18,26.122 C54.366,25.924 54.669,25.924 54.855,26.122 C55.042,26.319 55.042,26.64 54.855,26.838 L47.812,34.842 C47.6843199,34.9777019 47.5030157,35.0226895 47.3394821,34.9769628 C47.2309761,34.9582652 47.1269443,34.9069443 47.043,34.823 L43.142,30.922 C42.926,30.707 42.926,30.357 43.142,30.142 C43.357,29.926 43.707,29.926 43.922,30.142 L47.4802328,33.6993209 Z M46,18 L46,16.832 C46,16.371 46.335,15.998 46.75,15.998 L50.25,15.998 C50.664,15.998 51,16.371 51,16.832 L51,18 L53,18 L53,21 L44,21 L44,18 L46,18 L46,18 Z M52,17 L54,17 L54,18 L59,18 L59,40 L38.06,40 L38.06,18 L43,18 L43,18 L43,17 L45,17 L45,16.665 C45,15.744 45.671,14.998 46.5,14.998 L50.5,14.998 C51.328,14.998 52,15.744 52,16.665 L52,17 L52,17 Z M43,19 L39,19 L39,39 L58,39 L58,19 L54,19 L54,22 L43,22 L43,19 Z" id="icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+G:\Meet\SIMS\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+G:\Meet\SIMS\SIMS\SIMS\bin\SIMS.dll.config
+G:\Meet\SIMS\SIMS\SIMS\bin\SIMS.dll
+G:\Meet\SIMS\SIMS\SIMS\bin\SIMS.pdb
+G:\Meet\SIMS\SIMS\SIMS\obj\Debug\SIMS.dll
+G:\Meet\SIMS\SIMS\SIMS\obj\Debug\SIMS.pdb
+G:\Meet\SIMS\SIMS\SIMS\bin\SIMSClassLibrary.dll
+G:\Meet\SIMS\SIMS\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\Meet\SIMS\SIMS\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\Meet\SIMS\SIMS\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
+G:\Meet\SIMS\SIMS\SIMS\bin\SIMSClassLibrary.pdb
