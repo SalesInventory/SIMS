@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS", "SIMS\SIMS.csproj", "{FDE72EE1-E957-4459-9B17-7F7E73CB1382}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2199AD20-E9AA-4612-A383-8E973B9B249D} = {2199AD20-E9AA-4612-A383-8E973B9B249D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMSClassLibrary", "SIMSClassLibrary\SIMSClassLibrary.csproj", "{2199AD20-E9AA-4612-A383-8E973B9B249D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDE72EE1-E957-4459-9B17-7F7E73CB1382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE72EE1-E957-4459-9B17-7F7E73CB1382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE72EE1-E957-4459-9B17-7F7E73CB1382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE72EE1-E957-4459-9B17-7F7E73CB1382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2199AD20-E9AA-4612-A383-8E973B9B249D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2199AD20-E9AA-4612-A383-8E973B9B249D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2199AD20-E9AA-4612-A383-8E973B9B249D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2199AD20-E9AA-4612-A383-8E973B9B249D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

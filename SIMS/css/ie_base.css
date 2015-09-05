@@ -1,0 +1,14 @@
+.sidebar-btn {
+  display: inline-block;
+  top: 25.3em;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5);
+  -ms-transform: rotate(90deg);
+  right: 0;
+  white-space: nowrap;
+  left: 94.3%; }
+  .sidebar-btn:hover {
+    text-decoration: none; }

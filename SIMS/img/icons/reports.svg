@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.1 (9977) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WebApp" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Minimal---Header" sketch:type="MSArtboardGroup" transform="translate(-929.000000, -15.000000)" fill="#FFFFFF" opacity="0.5">
+            <g id="header" sketch:type="MSLayerGroup">
+                <g id="menu" transform="translate(310.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="Reports" transform="translate(583.000000, 0.000000)">
+                        <path d="M46,18.0448459 L46,15 L47,15 L47,15.0456625 L47,15.0456625 C47.3295785,15.0166321 47.6627103,15 48,15 C55.18,15 61,20.82 61,28 C61,32.1692202 59.0319432,35.8716577 55.9803299,38.2493299 L56.01,38.279 L55.28,39.01 L53.8563603,37.586207 C51.9759989,39.0914676 49.597206,40 47,40 C41.2621397,40 36.5501799,35.6055778 36.0448593,30 L36,30 L36,29 C36,23.2620891 40.3936077,18.5500967 46,18.0448459 Z M46,19.0493712 L46,22 L46,29 L37,29 C37,23.8145003 40.9465557,19.5510683 46,19.0493712 Z M37.0493712,30 L46.2709698,30 L53.1455624,36.8753327 C51.4501871,38.2031126 49.3201904,39 47,39 C41.8145003,39 37.5510683,35.0534443 37.0493712,30 Z M47,16.0476652 L47,29.269 L47,29.269 L55.2742679,37.5432679 C58.1466908,35.3502601 60,31.8919406 60,28 C60,21.372 54.627,16 48,16 C47.6624719,16 47.3293397,16.0170953 47,16.0476652 L47,16.0476652 Z M46.2709698,30 L46,30 L46,29.7290011 L46,29.7290011 L46,30 L46.2709698,30 L46.2709698,30 L46.2709698,30 Z M46,29.709 L46,29 L46.709,29 L46.709,29 L46,29 L46,29.709 L46,29.709 L46,29.709 Z M46.731,29 L47,29 L47,29.269 L47,29.269 L47,29 L46.731,29 L46.731,29 L46.731,29 Z" id="icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
