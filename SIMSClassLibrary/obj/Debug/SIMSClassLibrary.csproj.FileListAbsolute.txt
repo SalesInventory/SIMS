@@ -1,9 +1,0 @@
-G:\Meet\SIMS\SIMS\ValuePadClassLibrary\bin\Debug\ValuePadClassLibrary.dll
-G:\Meet\SIMS\SIMS\ValuePadClassLibrary\bin\Debug\ValuePadClassLibrary.pdb
-G:\Meet\SIMS\SIMS\ValuePadClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
-G:\Meet\SIMS\SIMS\ValuePadClassLibrary\obj\Debug\ValuePadClassLibrary.dll
-G:\Meet\SIMS\SIMS\ValuePadClassLibrary\obj\Debug\ValuePadClassLibrary.pdb
-G:\Meet\SIMS\SIMS\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
-G:\Meet\SIMS\SIMS\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
-G:\Meet\SIMS\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
-G:\Meet\SIMS\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
