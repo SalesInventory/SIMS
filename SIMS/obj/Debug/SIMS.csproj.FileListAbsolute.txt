@@ -20,3 +20,14 @@ E:\SIMS\SIMS_GIT\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
 E:\SIMS\SIMS_GIT\SIMS\bin\SIMSClassLibrary.pdb
 E:\SIMS\SIMS_GIT\SIMS\obj\Debug\SIMS.dll
 E:\SIMS\SIMS_GIT\SIMS\obj\Debug\SIMS.pdb
+D:\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+D:\SIMS\SIMS\bin\SIMS.dll.config
+D:\SIMS\SIMS\bin\SIMS.dll
+D:\SIMS\SIMS\bin\SIMS.pdb
+D:\SIMS\SIMS\bin\SIMSClassLibrary.dll
+D:\SIMS\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\SIMS\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\SIMS\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
+D:\SIMS\SIMS\bin\SIMSClassLibrary.pdb
+D:\SIMS\SIMS\obj\Debug\SIMS.dll
+D:\SIMS\SIMS\obj\Debug\SIMS.pdb
