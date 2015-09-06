@@ -12,12 +12,12 @@ namespace SIMSClassLibrary.BLL
 	{
 		#region Variables
 
-		private int _ID;
+		private int _ColorID;
 		private string _Name;
-		private DateTime _CreatedOn;
-		private DateTime _UpdatedOn;
 		private int _CreatedBy;
+		private DateTime _CreatedOn;
 		private int _UpdatedBy;
+		private DateTime _UpdatedOn;
 
 		#endregion
 
@@ -25,26 +25,26 @@ namespace SIMSClassLibrary.BLL
 
 		public ProductColorMasterBLL()
 		{
-			_ID = 0;
+			_ColorID = 0;
 			_Name = "";
-			_CreatedOn = DateTime.MinValue;
-			_UpdatedOn = DateTime.MinValue;
 			_CreatedBy = 0;
+			_CreatedOn = DateTime.MinValue;
 			_UpdatedBy = 0;
+			_UpdatedOn = DateTime.MinValue;
 		}
 
-		public ProductColorMasterBLL(int __iD)
+		public ProductColorMasterBLL(int __colorID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.ProductColorMaster.GetRecord(__iD));
+			 LoadProperties(SIMSClassLibrary.DAL.ProductColorMaster.GetRecord(__colorID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int ID
+		public int ColorID
 		{
-			get { return _ID; }
+			get { return _ColorID; }
 		}
 
 		public string Name
@@ -53,28 +53,28 @@ namespace SIMSClassLibrary.BLL
 			set { _Name = value; }
 		}
 
-		public DateTime CreatedOn
-		{
-			get { return _CreatedOn; }
-			set { _CreatedOn = value; }
-		}
-
-		public DateTime UpdatedOn
-		{
-			get { return _UpdatedOn; }
-			set { _UpdatedOn = value; }
-		}
-
 		public int CreatedBy
 		{
 			get { return _CreatedBy; }
 			set { _CreatedBy = value; }
 		}
 
+		public DateTime CreatedOn
+		{
+			get { return _CreatedOn; }
+			set { _CreatedOn = value; }
+		}
+
 		public int UpdatedBy
 		{
 			get { return _UpdatedBy; }
 			set { _UpdatedBy = value; }
+		}
+
+		public DateTime UpdatedOn
+		{
+			get { return _UpdatedOn; }
+			set { _UpdatedOn = value; }
 		}
 
 		#endregion
@@ -85,33 +85,33 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["ID"].Equals(DBNull.Value))
-					_ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"]);
+				if(!ds.Tables[0].Rows[0]["ColorID"].Equals(DBNull.Value))
+					_ColorID = Convert.ToInt32(ds.Tables[0].Rows[0]["ColorID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
-				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
-					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
-				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
-					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
 				if(!ds.Tables[0].Rows[0]["CreatedBy"].Equals(DBNull.Value))
 					_CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CreatedBy"]);
+				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
+					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
 				if(!ds.Tables[0].Rows[0]["UpdatedBy"].Equals(DBNull.Value))
 					_UpdatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["UpdatedBy"]);
+				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
+					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
 			}
 			else
 			{
-				_ID = 0;
+				_ColorID = 0;
 				_Name = "";
-				_CreatedOn = DateTime.MinValue;
-				_UpdatedOn = DateTime.MinValue;
 				_CreatedBy = 0;
+				_CreatedOn = DateTime.MinValue;
 				_UpdatedBy = 0;
+				_UpdatedOn = DateTime.MinValue;
 			}
 		}
 
 		public void Save()
 		{
-			_ID = SIMSClassLibrary.DAL.ProductColorMaster.Save(_ID, _Name, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_ColorID = SIMSClassLibrary.DAL.ProductColorMaster.Save(_ColorID, _Name, _CreatedBy, _CreatedOn, _UpdatedBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()
@@ -123,9 +123,9 @@ namespace SIMSClassLibrary.BLL
 				return null;
 		}
 
-		public static int Delete(int __iD)
+		public static int Delete(int __colorID)
 		{
-			return SIMSClassLibrary.DAL.ProductColorMaster.Delete(__iD);
+			return SIMSClassLibrary.DAL.ProductColorMaster.Delete(__colorID);
 		}
 
 		#endregion

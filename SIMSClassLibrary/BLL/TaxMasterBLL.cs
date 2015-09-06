@@ -12,13 +12,13 @@ namespace SIMSClassLibrary.BLL
 	{
 		#region Variables
 
-		private int _ID;
+		private int _TaxMasterID;
 		private string _Name;
 		private string _Percentage;
 		private DateTime _CreatedOn;
-		private DateTime _UpdatedOn;
 		private int _CreatedBy;
-		private int _UpdatedBy;
+		private int _UpdateBy;
+		private DateTime _UpdatedOn;
 
 		#endregion
 
@@ -26,27 +26,27 @@ namespace SIMSClassLibrary.BLL
 
 		public TaxMasterBLL()
 		{
-			_ID = 0;
+			_TaxMasterID = 0;
 			_Name = "";
 			_Percentage = "";
 			_CreatedOn = DateTime.MinValue;
-			_UpdatedOn = DateTime.MinValue;
 			_CreatedBy = 0;
-			_UpdatedBy = 0;
+			_UpdateBy = 0;
+			_UpdatedOn = DateTime.MinValue;
 		}
 
-		public TaxMasterBLL(int __iD)
+		public TaxMasterBLL(int __taxMasterID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.TaxMaster.GetRecord(__iD));
+			 LoadProperties(SIMSClassLibrary.DAL.TaxMaster.GetRecord(__taxMasterID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int ID
+		public int TaxMasterID
 		{
-			get { return _ID; }
+			get { return _TaxMasterID; }
 		}
 
 		public string Name
@@ -67,22 +67,22 @@ namespace SIMSClassLibrary.BLL
 			set { _CreatedOn = value; }
 		}
 
-		public DateTime UpdatedOn
-		{
-			get { return _UpdatedOn; }
-			set { _UpdatedOn = value; }
-		}
-
 		public int CreatedBy
 		{
 			get { return _CreatedBy; }
 			set { _CreatedBy = value; }
 		}
 
-		public int UpdatedBy
+		public int UpdateBy
 		{
-			get { return _UpdatedBy; }
-			set { _UpdatedBy = value; }
+			get { return _UpdateBy; }
+			set { _UpdateBy = value; }
+		}
+
+		public DateTime UpdatedOn
+		{
+			get { return _UpdatedOn; }
+			set { _UpdatedOn = value; }
 		}
 
 		#endregion
@@ -93,36 +93,36 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["ID"].Equals(DBNull.Value))
-					_ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"]);
+				if(!ds.Tables[0].Rows[0]["TaxMasterID"].Equals(DBNull.Value))
+					_TaxMasterID = Convert.ToInt32(ds.Tables[0].Rows[0]["TaxMasterID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
 				if(!ds.Tables[0].Rows[0]["Percentage"].Equals(DBNull.Value))
 					_Percentage = Convert.ToString(ds.Tables[0].Rows[0]["Percentage"]);
 				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
 					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
-				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
-					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
 				if(!ds.Tables[0].Rows[0]["CreatedBy"].Equals(DBNull.Value))
 					_CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CreatedBy"]);
-				if(!ds.Tables[0].Rows[0]["UpdatedBy"].Equals(DBNull.Value))
-					_UpdatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["UpdatedBy"]);
+				if(!ds.Tables[0].Rows[0]["UpdateBy"].Equals(DBNull.Value))
+					_UpdateBy = Convert.ToInt32(ds.Tables[0].Rows[0]["UpdateBy"]);
+				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
+					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
 			}
 			else
 			{
-				_ID = 0;
+				_TaxMasterID = 0;
 				_Name = "";
 				_Percentage = "";
 				_CreatedOn = DateTime.MinValue;
-				_UpdatedOn = DateTime.MinValue;
 				_CreatedBy = 0;
-				_UpdatedBy = 0;
+				_UpdateBy = 0;
+				_UpdatedOn = DateTime.MinValue;
 			}
 		}
 
 		public void Save()
 		{
-			_ID = SIMSClassLibrary.DAL.TaxMaster.Save(_ID, _Name, _Percentage, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_TaxMasterID = SIMSClassLibrary.DAL.TaxMaster.Save(_TaxMasterID, _Name, _Percentage, _CreatedOn, _CreatedBy, _UpdateBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()
@@ -134,9 +134,9 @@ namespace SIMSClassLibrary.BLL
 				return null;
 		}
 
-		public static int Delete(int __iD)
+		public static int Delete(int __taxMasterID)
 		{
-			return SIMSClassLibrary.DAL.TaxMaster.Delete(__iD);
+			return SIMSClassLibrary.DAL.TaxMaster.Delete(__taxMasterID);
 		}
 
 		#endregion

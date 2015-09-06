@@ -11,3 +11,4 @@ E:\SIMS\SIMS_GIT\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
 E:\SIMS\SIMS_GIT\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 E:\SIMS\SIMS_GIT\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 E:\SIMS\SIMS_GIT\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+G:\Meet\SIMS\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache

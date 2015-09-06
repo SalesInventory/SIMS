@@ -12,13 +12,19 @@ namespace SIMSClassLibrary.BLL
 	{
 		#region Variables
 
-		private int _ID;
-		private int _ProductBarcodeDetailsID;
-		private int _ProductStatusID;
-		private DateTime _CreatedOn;
-		private DateTime _UpdatedOn;
+		private int _StatusID;
+		private int _ProductBarCodeDetailD;
+		private bool _StockIN;
+		private DateTime _StockINDate;
+		private DateTime _StockOUTDate;
+		private bool _StockOUT;
 		private int _CreatedBy;
-		private int _UpdatedBy;
+		private DateTime _CreatedOn;
+		private int _UpdateBy;
+		private DateTime _UpdatedOn;
+		private bool _IsReversed;
+		private DateTime _ReversedDate;
+		private bool _IsActive;
 
 		#endregion
 
@@ -26,51 +32,63 @@ namespace SIMSClassLibrary.BLL
 
 		public ProductStatusTrackingBLL()
 		{
-			_ID = 0;
-			_ProductBarcodeDetailsID = 0;
-			_ProductStatusID = 0;
-			_CreatedOn = DateTime.MinValue;
-			_UpdatedOn = DateTime.MinValue;
+			_StatusID = 0;
+			_ProductBarCodeDetailD = 0;
+			_StockIN = false;
+			_StockINDate = DateTime.MinValue;
+			_StockOUTDate = DateTime.MinValue;
+			_StockOUT = false;
 			_CreatedBy = 0;
-			_UpdatedBy = 0;
+			_CreatedOn = DateTime.MinValue;
+			_UpdateBy = 0;
+			_UpdatedOn = DateTime.MinValue;
+			_IsReversed = false;
+			_ReversedDate = DateTime.MinValue;
+			_IsActive = false;
 		}
 
-		public ProductStatusTrackingBLL(int __iD)
+		public ProductStatusTrackingBLL(int __statusID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.ProductStatusTracking.GetRecord(__iD));
+			 LoadProperties(SIMSClassLibrary.DAL.ProductStatusTracking.GetRecord(__statusID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int ID
+		public int StatusID
 		{
-			get { return _ID; }
+			get { return _StatusID; }
 		}
 
-		public int ProductBarcodeDetailsID
+		public int ProductBarCodeDetailD
 		{
-			get { return _ProductBarcodeDetailsID; }
-			set { _ProductBarcodeDetailsID = value; }
+			get { return _ProductBarCodeDetailD; }
+			set { _ProductBarCodeDetailD = value; }
 		}
 
-		public int ProductStatusID
+		public bool StockIN
 		{
-			get { return _ProductStatusID; }
-			set { _ProductStatusID = value; }
+			get { return _StockIN; }
+			set { _StockIN = value; }
 		}
 
-		public DateTime CreatedOn
+		public DateTime StockINDate
 		{
-			get { return _CreatedOn; }
-			set { _CreatedOn = value; }
+			get { return _StockINDate; }
+			set { _StockINDate = value; }
 		}
 
-		public DateTime UpdatedOn
+		public DateTime StockOUTDate
 		{
-			get { return _UpdatedOn; }
-			set { _UpdatedOn = value; }
+			get { return _StockOUTDate; }
+			set { _StockOUTDate = value; }
+		}
+
+		public bool StockOUT
+		{
+			get { return _StockOUT; }
+			set { _StockOUT = value; }
 		}
 
 		public int CreatedBy
@@ -79,10 +97,40 @@ namespace SIMSClassLibrary.BLL
 			set { _CreatedBy = value; }
 		}
 
-		public int UpdatedBy
+		public DateTime CreatedOn
 		{
-			get { return _UpdatedBy; }
-			set { _UpdatedBy = value; }
+			get { return _CreatedOn; }
+			set { _CreatedOn = value; }
+		}
+
+		public int UpdateBy
+		{
+			get { return _UpdateBy; }
+			set { _UpdateBy = value; }
+		}
+
+		public DateTime UpdatedOn
+		{
+			get { return _UpdatedOn; }
+			set { _UpdatedOn = value; }
+		}
+
+		public bool IsReversed
+		{
+			get { return _IsReversed; }
+			set { _IsReversed = value; }
+		}
+
+		public DateTime ReversedDate
+		{
+			get { return _ReversedDate; }
+			set { _ReversedDate = value; }
+		}
+
+		public bool IsActive
+		{
+			get { return _IsActive; }
+			set { _IsActive = value; }
 		}
 
 		#endregion
@@ -93,36 +141,54 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["ID"].Equals(DBNull.Value))
-					_ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"]);
-				if(!ds.Tables[0].Rows[0]["ProductBarcodeDetailsID"].Equals(DBNull.Value))
-					_ProductBarcodeDetailsID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductBarcodeDetailsID"]);
-				if(!ds.Tables[0].Rows[0]["ProductStatusID"].Equals(DBNull.Value))
-					_ProductStatusID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductStatusID"]);
-				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
-					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
-				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
-					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
+				if(!ds.Tables[0].Rows[0]["StatusID"].Equals(DBNull.Value))
+					_StatusID = Convert.ToInt32(ds.Tables[0].Rows[0]["StatusID"]);
+				if(!ds.Tables[0].Rows[0]["ProductBarCodeDetailD"].Equals(DBNull.Value))
+					_ProductBarCodeDetailD = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductBarCodeDetailD"]);
+				if(!ds.Tables[0].Rows[0]["StockIN"].Equals(DBNull.Value))
+					_StockIN = Convert.ToBoolean(ds.Tables[0].Rows[0]["StockIN"]);
+				if(!ds.Tables[0].Rows[0]["StockINDate"].Equals(DBNull.Value))
+					_StockINDate = Convert.ToDateTime(ds.Tables[0].Rows[0]["StockINDate"]);
+				if(!ds.Tables[0].Rows[0]["StockOUTDate"].Equals(DBNull.Value))
+					_StockOUTDate = Convert.ToDateTime(ds.Tables[0].Rows[0]["StockOUTDate"]);
+				if(!ds.Tables[0].Rows[0]["StockOUT"].Equals(DBNull.Value))
+					_StockOUT = Convert.ToBoolean(ds.Tables[0].Rows[0]["StockOUT"]);
 				if(!ds.Tables[0].Rows[0]["CreatedBy"].Equals(DBNull.Value))
 					_CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CreatedBy"]);
-				if(!ds.Tables[0].Rows[0]["UpdatedBy"].Equals(DBNull.Value))
-					_UpdatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["UpdatedBy"]);
+				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
+					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
+				if(!ds.Tables[0].Rows[0]["UpdateBy"].Equals(DBNull.Value))
+					_UpdateBy = Convert.ToInt32(ds.Tables[0].Rows[0]["UpdateBy"]);
+				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
+					_UpdatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["UpdatedOn"]);
+				if(!ds.Tables[0].Rows[0]["IsReversed"].Equals(DBNull.Value))
+					_IsReversed = Convert.ToBoolean(ds.Tables[0].Rows[0]["IsReversed"]);
+				if(!ds.Tables[0].Rows[0]["ReversedDate"].Equals(DBNull.Value))
+					_ReversedDate = Convert.ToDateTime(ds.Tables[0].Rows[0]["ReversedDate"]);
+				if(!ds.Tables[0].Rows[0]["IsActive"].Equals(DBNull.Value))
+					_IsActive = Convert.ToBoolean(ds.Tables[0].Rows[0]["IsActive"]);
 			}
 			else
 			{
-				_ID = 0;
-				_ProductBarcodeDetailsID = 0;
-				_ProductStatusID = 0;
-				_CreatedOn = DateTime.MinValue;
-				_UpdatedOn = DateTime.MinValue;
+				_StatusID = 0;
+				_ProductBarCodeDetailD = 0;
+				_StockIN = false;
+				_StockINDate = DateTime.MinValue;
+				_StockOUTDate = DateTime.MinValue;
+				_StockOUT = false;
 				_CreatedBy = 0;
-				_UpdatedBy = 0;
+				_CreatedOn = DateTime.MinValue;
+				_UpdateBy = 0;
+				_UpdatedOn = DateTime.MinValue;
+				_IsReversed = false;
+				_ReversedDate = DateTime.MinValue;
+				_IsActive = false;
 			}
 		}
 
 		public void Save()
 		{
-			_ID = SIMSClassLibrary.DAL.ProductStatusTracking.Save(_ID, _ProductBarcodeDetailsID, _ProductStatusID, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_StatusID = SIMSClassLibrary.DAL.ProductStatusTracking.Save(_StatusID, _ProductBarCodeDetailD, _StockIN, _StockINDate, _StockOUTDate, _StockOUT, _CreatedBy, _CreatedOn, _UpdateBy, _UpdatedOn, _IsReversed, _ReversedDate, _IsActive);
 		}
 
 		public static DataTable GetAllRecords()
@@ -134,9 +200,9 @@ namespace SIMSClassLibrary.BLL
 				return null;
 		}
 
-		public static int Delete(int __iD)
+		public static int Delete(int __statusID)
 		{
-			return SIMSClassLibrary.DAL.ProductStatusTracking.Delete(__iD);
+			return SIMSClassLibrary.DAL.ProductStatusTracking.Delete(__statusID);
 		}
 
 		#endregion

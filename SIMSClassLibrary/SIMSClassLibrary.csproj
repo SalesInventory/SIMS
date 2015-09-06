@@ -56,29 +56,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\ProductBarcodeDetailsBLL.cs" />
+    <Compile Include="BLL\CityMasterBLL.cs" />
+    <Compile Include="BLL\ProductBarCodeDetailsBLL.cs" />
     <Compile Include="BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="BLL\ProductColorMasterBLL.cs" />
     <Compile Include="BLL\ProductCompanyMasterBLL.cs" />
-    <Compile Include="BLL\ProductDetailsBLL.cs" />
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\ProductSizeMasterBLL.cs" />
-    <Compile Include="BLL\ProductStatusMasterBLL.cs" />
     <Compile Include="BLL\ProductStatusTrackingBLL.cs" />
     <Compile Include="BLL\ProductTaxMasterBLL.cs" />
+    <Compile Include="BLL\StateMasterBLL.cs" />
     <Compile Include="BLL\TaxMasterBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="BLL\VendorMasterBLL.cs" />
-    <Compile Include="DAL\ProductBarcodeDetails.cs" />
+    <Compile Include="DAL\CityMaster.cs" />
+    <Compile Include="DAL\ProductBarCodeDetails.cs" />
     <Compile Include="DAL\ProductCategoryMaster.cs" />
     <Compile Include="DAL\ProductColorMaster.cs" />
     <Compile Include="DAL\ProductCompanyMaster.cs" />
-    <Compile Include="DAL\ProductDetails.cs" />
     <Compile Include="DAL\ProductMaster.cs" />
     <Compile Include="DAL\ProductSizeMaster.cs" />
-    <Compile Include="DAL\ProductStatusMaster.cs" />
     <Compile Include="DAL\ProductStatusTracking.cs" />
     <Compile Include="DAL\ProductTaxMaster.cs" />
+    <Compile Include="DAL\StateMaster.cs" />
     <Compile Include="DAL\TaxMaster.cs" />
     <Compile Include="DAL\User.cs" />
     <Compile Include="DAL\VendorMaster.cs" />

@@ -12,15 +12,19 @@ namespace SIMSClassLibrary.BLL
 	{
 		#region Variables
 
-		private int _ID;
+		private int _ProductMasterID;
 		private int _VendorID;
 		private int _ProductCompanyID;
 		private int _ProductSizeID;
 		private int _ProductColorID;
+		private int _ProductCategoryID;
 		private string _Name;
 		private string _Descryption;
 		private string _ShortCode;
-		private decimal _UnitPrice;
+		private int _Quantity;
+		private decimal _PurchasePrice;
+		private decimal _MRP;
+		private int _Discount;
 		private DateTime _CreatedOn;
 		private DateTime _UpdatedOn;
 		private int _CreatedBy;
@@ -32,33 +36,37 @@ namespace SIMSClassLibrary.BLL
 
 		public ProductMasterBLL()
 		{
-			_ID = 0;
+			_ProductMasterID = 0;
 			_VendorID = 0;
 			_ProductCompanyID = 0;
 			_ProductSizeID = 0;
 			_ProductColorID = 0;
+			_ProductCategoryID = 0;
 			_Name = "";
 			_Descryption = "";
 			_ShortCode = "";
-			_UnitPrice = 0;
+			_Quantity = 0;
+			_PurchasePrice = 0;
+			_MRP = 0;
+			_Discount = 0;
 			_CreatedOn = DateTime.MinValue;
 			_UpdatedOn = DateTime.MinValue;
 			_CreatedBy = 0;
 			_UpdatedBy = 0;
 		}
 
-		public ProductMasterBLL(int __iD)
+		public ProductMasterBLL(int __productMasterID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.ProductMaster.GetRecord(__iD));
+			 LoadProperties(SIMSClassLibrary.DAL.ProductMaster.GetRecord(__productMasterID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int ID
+		public int ProductMasterID
 		{
-			get { return _ID; }
+			get { return _ProductMasterID; }
 		}
 
 		public int VendorID
@@ -85,6 +93,12 @@ namespace SIMSClassLibrary.BLL
 			set { _ProductColorID = value; }
 		}
 
+		public int ProductCategoryID
+		{
+			get { return _ProductCategoryID; }
+			set { _ProductCategoryID = value; }
+		}
+
 		public string Name
 		{
 			get { return _Name; }
@@ -103,10 +117,28 @@ namespace SIMSClassLibrary.BLL
 			set { _ShortCode = value; }
 		}
 
-		public decimal UnitPrice
+		public int Quantity
 		{
-			get { return _UnitPrice; }
-			set { _UnitPrice = value; }
+			get { return _Quantity; }
+			set { _Quantity = value; }
+		}
+
+		public decimal PurchasePrice
+		{
+			get { return _PurchasePrice; }
+			set { _PurchasePrice = value; }
+		}
+
+		public decimal MRP
+		{
+			get { return _MRP; }
+			set { _MRP = value; }
+		}
+
+		public int Discount
+		{
+			get { return _Discount; }
+			set { _Discount = value; }
 		}
 
 		public DateTime CreatedOn
@@ -141,8 +173,8 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["ID"].Equals(DBNull.Value))
-					_ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"]);
+				if(!ds.Tables[0].Rows[0]["ProductMasterID"].Equals(DBNull.Value))
+					_ProductMasterID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductMasterID"]);
 				if(!ds.Tables[0].Rows[0]["VendorID"].Equals(DBNull.Value))
 					_VendorID = Convert.ToInt32(ds.Tables[0].Rows[0]["VendorID"]);
 				if(!ds.Tables[0].Rows[0]["ProductCompanyID"].Equals(DBNull.Value))
@@ -151,14 +183,22 @@ namespace SIMSClassLibrary.BLL
 					_ProductSizeID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductSizeID"]);
 				if(!ds.Tables[0].Rows[0]["ProductColorID"].Equals(DBNull.Value))
 					_ProductColorID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductColorID"]);
+				if(!ds.Tables[0].Rows[0]["ProductCategoryID"].Equals(DBNull.Value))
+					_ProductCategoryID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductCategoryID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
 				if(!ds.Tables[0].Rows[0]["Descryption"].Equals(DBNull.Value))
 					_Descryption = Convert.ToString(ds.Tables[0].Rows[0]["Descryption"]);
 				if(!ds.Tables[0].Rows[0]["ShortCode"].Equals(DBNull.Value))
 					_ShortCode = Convert.ToString(ds.Tables[0].Rows[0]["ShortCode"]);
-				if(!ds.Tables[0].Rows[0]["UnitPrice"].Equals(DBNull.Value))
-					_UnitPrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["UnitPrice"]);
+				if(!ds.Tables[0].Rows[0]["Quantity"].Equals(DBNull.Value))
+					_Quantity = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]);
+				if(!ds.Tables[0].Rows[0]["PurchasePrice"].Equals(DBNull.Value))
+					_PurchasePrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["PurchasePrice"]);
+				if(!ds.Tables[0].Rows[0]["MRP"].Equals(DBNull.Value))
+					_MRP = Convert.ToDecimal(ds.Tables[0].Rows[0]["MRP"]);
+				if(!ds.Tables[0].Rows[0]["Discount"].Equals(DBNull.Value))
+					_Discount = Convert.ToInt32(ds.Tables[0].Rows[0]["Discount"]);
 				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
 					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
 				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
@@ -170,15 +210,19 @@ namespace SIMSClassLibrary.BLL
 			}
 			else
 			{
-				_ID = 0;
+				_ProductMasterID = 0;
 				_VendorID = 0;
 				_ProductCompanyID = 0;
 				_ProductSizeID = 0;
 				_ProductColorID = 0;
+				_ProductCategoryID = 0;
 				_Name = "";
 				_Descryption = "";
 				_ShortCode = "";
-				_UnitPrice = 0;
+				_Quantity = 0;
+				_PurchasePrice = 0;
+				_MRP = 0;
+				_Discount = 0;
 				_CreatedOn = DateTime.MinValue;
 				_UpdatedOn = DateTime.MinValue;
 				_CreatedBy = 0;
@@ -188,7 +232,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ID = SIMSClassLibrary.DAL.ProductMaster.Save(_ID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _Name, _Descryption, _ShortCode, _UnitPrice, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_ProductMasterID = SIMSClassLibrary.DAL.ProductMaster.Save(_ProductMasterID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _ProductCategoryID, _Name, _Descryption, _ShortCode, _Quantity, _PurchasePrice, _MRP, _Discount, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
 		}
 
 		public static DataTable GetAllRecords()
@@ -200,9 +244,9 @@ namespace SIMSClassLibrary.BLL
 				return null;
 		}
 
-		public static int Delete(int __iD)
+		public static int Delete(int __productMasterID)
 		{
-			return SIMSClassLibrary.DAL.ProductMaster.Delete(__iD);
+			return SIMSClassLibrary.DAL.ProductMaster.Delete(__productMasterID);
 		}
 
 		#endregion
