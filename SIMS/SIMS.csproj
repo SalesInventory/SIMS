@@ -44,9 +44,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SIMSClassLibrary">
-      <HintPath>..\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -506,6 +503,12 @@
     <Folder Include="fonts\dd\" />
     <Folder Include="js\admin\" />
     <Folder Include="js\common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIMSClassLibrary\SIMSClassLibrary.csproj">
+      <Project>{2199ad20-e9aa-4612-a383-8e973b9b249d}</Project>
+      <Name>SIMSClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
