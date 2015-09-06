@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CityMasterBLL.cs" />
+    <Compile Include="BLL\CountryMasterBLL.cs" />
     <Compile Include="BLL\ProductBarCodeDetailsBLL.cs" />
     <Compile Include="BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="BLL\ProductColorMasterBLL.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="BLL\VendorMasterBLL.cs" />
     <Compile Include="DAL\CityMaster.cs" />
+    <Compile Include="DAL\CountryMaster.cs" />
     <Compile Include="DAL\ProductBarCodeDetails.cs" />
     <Compile Include="DAL\ProductCategoryMaster.cs" />
     <Compile Include="DAL\ProductColorMaster.cs" />
