@@ -57,7 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CityMasterBLL.cs" />
+    <Compile Include="BLL\CompanyMasterBLL.cs" />
     <Compile Include="BLL\CountryMasterBLL.cs" />
+    <Compile Include="BLL\CustomerMasterBLL.cs" />
+    <Compile Include="BLL\ImvoiceMasterBLL.cs" />
+    <Compile Include="BLL\InvoiceStatusMasterBLL.cs" />
+    <Compile Include="BLL\InvoiceTaxMasterBLL.cs" />
+    <Compile Include="BLL\PaymentModeMasterBLL.cs" />
     <Compile Include="BLL\ProductBarCodeDetailsBLL.cs" />
     <Compile Include="BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="BLL\ProductColorMasterBLL.cs" />
@@ -65,13 +71,18 @@
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\ProductSizeMasterBLL.cs" />
     <Compile Include="BLL\ProductStatusTrackingBLL.cs" />
-    <Compile Include="BLL\ProductTaxMasterBLL.cs" />
     <Compile Include="BLL\StateMasterBLL.cs" />
     <Compile Include="BLL\TaxMasterBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="BLL\VendorMasterBLL.cs" />
     <Compile Include="DAL\CityMaster.cs" />
+    <Compile Include="DAL\CompanyMaster.cs" />
     <Compile Include="DAL\CountryMaster.cs" />
+    <Compile Include="DAL\CustomerMaster.cs" />
+    <Compile Include="DAL\ImvoiceMaster.cs" />
+    <Compile Include="DAL\InvoiceStatusMaster.cs" />
+    <Compile Include="DAL\InvoiceTaxMaster.cs" />
+    <Compile Include="DAL\PaymentModeMaster.cs" />
     <Compile Include="DAL\ProductBarCodeDetails.cs" />
     <Compile Include="DAL\ProductCategoryMaster.cs" />
     <Compile Include="DAL\ProductColorMaster.cs" />
@@ -79,7 +90,6 @@
     <Compile Include="DAL\ProductMaster.cs" />
     <Compile Include="DAL\ProductSizeMaster.cs" />
     <Compile Include="DAL\ProductStatusTracking.cs" />
-    <Compile Include="DAL\ProductTaxMaster.cs" />
     <Compile Include="DAL\StateMaster.cs" />
     <Compile Include="DAL\TaxMaster.cs" />
     <Compile Include="DAL\User.cs" />

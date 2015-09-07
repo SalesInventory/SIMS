@@ -13,6 +13,7 @@ namespace SIMSClassLibrary.BLL
 		#region Variables
 
 		private int _StateID;
+		private int _CountryID;
 		private string _Name;
 
 		#endregion
@@ -22,6 +23,7 @@ namespace SIMSClassLibrary.BLL
 		public StateMasterBLL()
 		{
 			_StateID = 0;
+			_CountryID = 0;
 			_Name = "";
 		}
 
@@ -37,6 +39,12 @@ namespace SIMSClassLibrary.BLL
 		public int StateID
 		{
 			get { return _StateID; }
+		}
+
+		public int CountryID
+		{
+			get { return _CountryID; }
+			set { _CountryID = value; }
 		}
 
 		public string Name
@@ -55,19 +63,22 @@ namespace SIMSClassLibrary.BLL
 			{
 				if(!ds.Tables[0].Rows[0]["StateID"].Equals(DBNull.Value))
 					_StateID = Convert.ToInt32(ds.Tables[0].Rows[0]["StateID"]);
+				if(!ds.Tables[0].Rows[0]["CountryID"].Equals(DBNull.Value))
+					_CountryID = Convert.ToInt32(ds.Tables[0].Rows[0]["CountryID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
 			}
 			else
 			{
 				_StateID = 0;
+				_CountryID = 0;
 				_Name = "";
 			}
 		}
 
 		public void Save()
 		{
-			_StateID = SIMSClassLibrary.DAL.StateMaster.Save(_StateID, _Name);
+			_StateID = SIMSClassLibrary.DAL.StateMaster.Save(_StateID, _CountryID, _Name);
 		}
 
 		public static DataTable GetAllRecords()

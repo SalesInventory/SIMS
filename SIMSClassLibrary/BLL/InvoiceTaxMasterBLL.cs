@@ -6,14 +6,14 @@ using SIMSClassLibrary.DAL;
 namespace SIMSClassLibrary.BLL
 {
 	/// <summary>
-	/// BLL class for ProductTaxMaster table.
+	/// BLL class for InvoiceTaxMaster table.
 	/// </summary>
-	public sealed class ProductTaxMasterBLL
+	public sealed class InvoiceTaxMasterBLL
 	{
 		#region Variables
 
-		private int _ProductTaxID;
-		private int _ProductMasterID;
+		private int _InvoiceTaxID;
+		private int _InvoiceID;
 		private int _TaxID;
 		private DateTime _CreatedOn;
 		private int _CreatedBy;
@@ -24,10 +24,10 @@ namespace SIMSClassLibrary.BLL
 
 		#region Constructors
 
-		public ProductTaxMasterBLL()
+		public InvoiceTaxMasterBLL()
 		{
-			_ProductTaxID = 0;
-			_ProductMasterID = 0;
+			_InvoiceTaxID = 0;
+			_InvoiceID = 0;
 			_TaxID = 0;
 			_CreatedOn = DateTime.MinValue;
 			_CreatedBy = 0;
@@ -35,24 +35,24 @@ namespace SIMSClassLibrary.BLL
 			_UpdatedOn = DateTime.MinValue;
 		}
 
-		public ProductTaxMasterBLL(int __productTaxID)
+		public InvoiceTaxMasterBLL(int __invoiceTaxID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.ProductTaxMaster.GetRecord(__productTaxID));
+			 LoadProperties(SIMSClassLibrary.DAL.InvoiceTaxMaster.GetRecord(__invoiceTaxID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int ProductTaxID
+		public int InvoiceTaxID
 		{
-			get { return _ProductTaxID; }
+			get { return _InvoiceTaxID; }
 		}
 
-		public int ProductMasterID
+		public int InvoiceID
 		{
-			get { return _ProductMasterID; }
-			set { _ProductMasterID = value; }
+			get { return _InvoiceID; }
+			set { _InvoiceID = value; }
 		}
 
 		public int TaxID
@@ -93,10 +93,10 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["ProductTaxID"].Equals(DBNull.Value))
-					_ProductTaxID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductTaxID"]);
-				if(!ds.Tables[0].Rows[0]["ProductMasterID"].Equals(DBNull.Value))
-					_ProductMasterID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductMasterID"]);
+				if(!ds.Tables[0].Rows[0]["InvoiceTaxID"].Equals(DBNull.Value))
+					_InvoiceTaxID = Convert.ToInt32(ds.Tables[0].Rows[0]["InvoiceTaxID"]);
+				if(!ds.Tables[0].Rows[0]["InvoiceID"].Equals(DBNull.Value))
+					_InvoiceID = Convert.ToInt32(ds.Tables[0].Rows[0]["InvoiceID"]);
 				if(!ds.Tables[0].Rows[0]["TaxID"].Equals(DBNull.Value))
 					_TaxID = Convert.ToInt32(ds.Tables[0].Rows[0]["TaxID"]);
 				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
@@ -110,8 +110,8 @@ namespace SIMSClassLibrary.BLL
 			}
 			else
 			{
-				_ProductTaxID = 0;
-				_ProductMasterID = 0;
+				_InvoiceTaxID = 0;
+				_InvoiceID = 0;
 				_TaxID = 0;
 				_CreatedOn = DateTime.MinValue;
 				_CreatedBy = 0;
@@ -122,21 +122,21 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ProductTaxID = SIMSClassLibrary.DAL.ProductTaxMaster.Save(_ProductTaxID, _ProductMasterID, _TaxID, _CreatedOn, _CreatedBy, _UpdatedBy, _UpdatedOn);
+			_InvoiceTaxID = SIMSClassLibrary.DAL.InvoiceTaxMaster.Save(_InvoiceTaxID, _InvoiceID, _TaxID, _CreatedOn, _CreatedBy, _UpdatedBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()
 		{
-			DataSet ds = SIMSClassLibrary.DAL.ProductTaxMaster.GetAllRecords();
+			DataSet ds = SIMSClassLibrary.DAL.InvoiceTaxMaster.GetAllRecords();
 			if (ds != null && ds.Tables.Count > 0)
 				return ds.Tables[0];
 			else
 				return null;
 		}
 
-		public static int Delete(int __productTaxID)
+		public static int Delete(int __invoiceTaxID)
 		{
-			return SIMSClassLibrary.DAL.ProductTaxMaster.Delete(__productTaxID);
+			return SIMSClassLibrary.DAL.InvoiceTaxMaster.Delete(__invoiceTaxID);
 		}
 
 		#endregion

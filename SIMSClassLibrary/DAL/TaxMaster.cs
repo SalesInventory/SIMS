@@ -16,12 +16,12 @@ namespace SIMSClassLibrary.DAL
 		/// Selects a single record from the TaxMaster table.
 		/// </summary>
 		/// <returns>DataSet</returns>
-		public static DataSet GetRecord(int __taxMasterID)
+		public static DataSet GetRecord(int __taxID)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("TaxMasterGetRecord");
 
-			db.AddInParameter(dbCommand, "TaxMasterID", DbType.Int32, __taxMasterID);
+			db.AddInParameter(dbCommand, "TaxID", DbType.Int32, __taxID);
 
 			return db.ExecuteDataSet(dbCommand);
 		}
@@ -41,7 +41,7 @@ namespace SIMSClassLibrary.DAL
 		/// <summary>
 		/// Saves a record into the TaxMaster table.
 		/// <summary>
-		/// <param name="__taxMasterID"></param>
+		/// <param name="__taxID"></param>
 		/// <param name="__name"></param>
 		/// <param name="__percentage"></param>
 		/// <param name="__createdOn"></param>
@@ -49,12 +49,12 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__updateBy"></param>
 		/// <param name="__updatedOn"></param>
 		/// <returns></returns>
-		public static int Save(int __taxMasterID, string __name, string __percentage, DateTime __createdOn, int __createdBy, int __updateBy, DateTime __updatedOn)
+		public static int Save(int __taxID, string __name, string __percentage, DateTime __createdOn, int __createdBy, int __updateBy, DateTime __updatedOn)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("TaxMasterSave");
 
-			db.AddInParameter(dbCommand, "TaxMasterID", DbType.Int32, __taxMasterID);
+			db.AddInParameter(dbCommand, "TaxID", DbType.Int32, __taxID);
 			db.AddInParameter(dbCommand, "Name", DbType.String, __name);
 			db.AddInParameter(dbCommand, "Percentage", DbType.String, __percentage);
 			db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, __createdOn);
@@ -71,12 +71,12 @@ namespace SIMSClassLibrary.DAL
 		/// <summary>
 		/// Deletes a record from the TaxMaster table by a composite primary key.
 		/// </summary>
-		public static int Delete(int __taxMasterID)
+		public static int Delete(int __taxID)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("TaxMasterDelete");
 
-			db.AddInParameter(dbCommand, "TaxMasterID", DbType.Int32, __taxMasterID);
+			db.AddInParameter(dbCommand, "TaxID", DbType.Int32, __taxID);
 
 			int returnValue = Convert.ToInt32(db.ExecuteScalar(dbCommand));
 			return returnValue;

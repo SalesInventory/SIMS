@@ -13,7 +13,7 @@ namespace SIMSClassLibrary.BLL
 		#region Variables
 
 		private int _ProductBarCodeDetaiID;
-		private int _ProductMasterID;
+		private int _ProductID;
 		private string _BarCodeNumber;
 		private int _ExtaDiscount;
 		private int _CreatedBy;
@@ -31,7 +31,7 @@ namespace SIMSClassLibrary.BLL
 		public ProductBarCodeDetailsBLL()
 		{
 			_ProductBarCodeDetaiID = 0;
-			_ProductMasterID = 0;
+			_ProductID = 0;
 			_BarCodeNumber = "";
 			_ExtaDiscount = 0;
 			_CreatedBy = 0;
@@ -57,10 +57,10 @@ namespace SIMSClassLibrary.BLL
 			get { return _ProductBarCodeDetaiID; }
 		}
 
-		public int ProductMasterID
+		public int ProductID
 		{
-			get { return _ProductMasterID; }
-			set { _ProductMasterID = value; }
+			get { return _ProductID; }
+			set { _ProductID = value; }
 		}
 
 		public string BarCodeNumber
@@ -127,8 +127,8 @@ namespace SIMSClassLibrary.BLL
 			{
 				if(!ds.Tables[0].Rows[0]["ProductBarCodeDetaiID"].Equals(DBNull.Value))
 					_ProductBarCodeDetaiID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductBarCodeDetaiID"]);
-				if(!ds.Tables[0].Rows[0]["ProductMasterID"].Equals(DBNull.Value))
-					_ProductMasterID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductMasterID"]);
+				if(!ds.Tables[0].Rows[0]["ProductID"].Equals(DBNull.Value))
+					_ProductID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductID"]);
 				if(!ds.Tables[0].Rows[0]["BarCodeNumber"].Equals(DBNull.Value))
 					_BarCodeNumber = Convert.ToString(ds.Tables[0].Rows[0]["BarCodeNumber"]);
 				if(!ds.Tables[0].Rows[0]["ExtaDiscount"].Equals(DBNull.Value))
@@ -151,7 +151,7 @@ namespace SIMSClassLibrary.BLL
 			else
 			{
 				_ProductBarCodeDetaiID = 0;
-				_ProductMasterID = 0;
+				_ProductID = 0;
 				_BarCodeNumber = "";
 				_ExtaDiscount = 0;
 				_CreatedBy = 0;
@@ -166,7 +166,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ProductBarCodeDetaiID = SIMSClassLibrary.DAL.ProductBarCodeDetails.Save(_ProductBarCodeDetaiID, _ProductMasterID, _BarCodeNumber, _ExtaDiscount, _CreatedBy, _CreatedOn, _UpdatedBy, _UpdateOn, _IsDeleted, _DeletedOn, _IsBarcodeGenerated);
+			_ProductBarCodeDetaiID = SIMSClassLibrary.DAL.ProductBarCodeDetails.Save(_ProductBarCodeDetaiID, _ProductID, _BarCodeNumber, _ExtaDiscount, _CreatedBy, _CreatedOn, _UpdatedBy, _UpdateOn, _IsDeleted, _DeletedOn, _IsBarcodeGenerated);
 		}
 
 		public static DataTable GetAllRecords()

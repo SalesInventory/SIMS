@@ -43,6 +43,7 @@ namespace SIMSClassLibrary.DAL
 		/// <summary>
 		/// <param name="__statusID"></param>
 		/// <param name="__productBarCodeDetailD"></param>
+		/// <param name="__invoiceID"></param>
 		/// <param name="__stockIN"></param>
 		/// <param name="__stockINDate"></param>
 		/// <param name="__stockOUTDate"></param>
@@ -55,13 +56,14 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__reversedDate"></param>
 		/// <param name="__isActive"></param>
 		/// <returns></returns>
-		public static int Save(int __statusID, int __productBarCodeDetailD, bool __stockIN, DateTime __stockINDate, DateTime __stockOUTDate, bool __stockOUT, int __createdBy, DateTime __createdOn, int __updateBy, DateTime __updatedOn, bool __isReversed, DateTime __reversedDate, bool __isActive)
+		public static int Save(int __statusID, int __productBarCodeDetailD, int __invoiceID, bool __stockIN, DateTime __stockINDate, DateTime __stockOUTDate, bool __stockOUT, int __createdBy, DateTime __createdOn, int __updateBy, DateTime __updatedOn, bool __isReversed, DateTime __reversedDate, bool __isActive)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("ProductStatusTrackingSave");
 
 			db.AddInParameter(dbCommand, "StatusID", DbType.Int32, __statusID);
 			db.AddInParameter(dbCommand, "ProductBarCodeDetailD", DbType.Int32, __productBarCodeDetailD);
+			db.AddInParameter(dbCommand, "InvoiceID", DbType.Int32, __invoiceID);
 			db.AddInParameter(dbCommand, "StockIN", DbType.Boolean, __stockIN);
 			db.AddInParameter(dbCommand, "StockINDate", DbType.DateTime, __stockINDate);
 			db.AddInParameter(dbCommand, "StockOUTDate", DbType.DateTime, __stockOUTDate);

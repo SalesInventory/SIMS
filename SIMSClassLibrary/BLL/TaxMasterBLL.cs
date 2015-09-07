@@ -12,7 +12,7 @@ namespace SIMSClassLibrary.BLL
 	{
 		#region Variables
 
-		private int _TaxMasterID;
+		private int _TaxID;
 		private string _Name;
 		private string _Percentage;
 		private DateTime _CreatedOn;
@@ -26,7 +26,7 @@ namespace SIMSClassLibrary.BLL
 
 		public TaxMasterBLL()
 		{
-			_TaxMasterID = 0;
+			_TaxID = 0;
 			_Name = "";
 			_Percentage = "";
 			_CreatedOn = DateTime.MinValue;
@@ -35,18 +35,18 @@ namespace SIMSClassLibrary.BLL
 			_UpdatedOn = DateTime.MinValue;
 		}
 
-		public TaxMasterBLL(int __taxMasterID)
+		public TaxMasterBLL(int __taxID)
 		{
-			 LoadProperties(SIMSClassLibrary.DAL.TaxMaster.GetRecord(__taxMasterID));
+			 LoadProperties(SIMSClassLibrary.DAL.TaxMaster.GetRecord(__taxID));
 		}
 
 		#endregion
 
 		#region Properties
 
-		public int TaxMasterID
+		public int TaxID
 		{
-			get { return _TaxMasterID; }
+			get { return _TaxID; }
 		}
 
 		public string Name
@@ -93,8 +93,8 @@ namespace SIMSClassLibrary.BLL
 		{
 			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
 			{
-				if(!ds.Tables[0].Rows[0]["TaxMasterID"].Equals(DBNull.Value))
-					_TaxMasterID = Convert.ToInt32(ds.Tables[0].Rows[0]["TaxMasterID"]);
+				if(!ds.Tables[0].Rows[0]["TaxID"].Equals(DBNull.Value))
+					_TaxID = Convert.ToInt32(ds.Tables[0].Rows[0]["TaxID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
 				if(!ds.Tables[0].Rows[0]["Percentage"].Equals(DBNull.Value))
@@ -110,7 +110,7 @@ namespace SIMSClassLibrary.BLL
 			}
 			else
 			{
-				_TaxMasterID = 0;
+				_TaxID = 0;
 				_Name = "";
 				_Percentage = "";
 				_CreatedOn = DateTime.MinValue;
@@ -122,7 +122,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_TaxMasterID = SIMSClassLibrary.DAL.TaxMaster.Save(_TaxMasterID, _Name, _Percentage, _CreatedOn, _CreatedBy, _UpdateBy, _UpdatedOn);
+			_TaxID = SIMSClassLibrary.DAL.TaxMaster.Save(_TaxID, _Name, _Percentage, _CreatedOn, _CreatedBy, _UpdateBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()
@@ -134,9 +134,9 @@ namespace SIMSClassLibrary.BLL
 				return null;
 		}
 
-		public static int Delete(int __taxMasterID)
+		public static int Delete(int __taxID)
 		{
-			return SIMSClassLibrary.DAL.TaxMaster.Delete(__taxMasterID);
+			return SIMSClassLibrary.DAL.TaxMaster.Delete(__taxID);
 		}
 
 		#endregion

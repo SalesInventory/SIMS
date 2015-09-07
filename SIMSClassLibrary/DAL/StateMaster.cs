@@ -42,14 +42,16 @@ namespace SIMSClassLibrary.DAL
 		/// Saves a record into the StateMaster table.
 		/// <summary>
 		/// <param name="__stateID"></param>
+		/// <param name="__countryID"></param>
 		/// <param name="__name"></param>
 		/// <returns></returns>
-		public static int Save(int __stateID, string __name)
+		public static int Save(int __stateID, int __countryID, string __name)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("StateMasterSave");
 
 			db.AddInParameter(dbCommand, "StateID", DbType.Int32, __stateID);
+			db.AddInParameter(dbCommand, "CountryID", DbType.Int32, __countryID);
 			db.AddInParameter(dbCommand, "Name", DbType.String, __name);
 
 			// Execute the query and return the new identity value

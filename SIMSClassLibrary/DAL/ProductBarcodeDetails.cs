@@ -42,7 +42,7 @@ namespace SIMSClassLibrary.DAL
 		/// Saves a record into the ProductBarCodeDetails table.
 		/// <summary>
 		/// <param name="__productBarCodeDetaiID"></param>
-		/// <param name="__productMasterID"></param>
+		/// <param name="__productID"></param>
 		/// <param name="__barCodeNumber"></param>
 		/// <param name="__extaDiscount"></param>
 		/// <param name="__createdBy"></param>
@@ -53,13 +53,13 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__deletedOn"></param>
 		/// <param name="__isBarcodeGenerated"></param>
 		/// <returns></returns>
-		public static int Save(int __productBarCodeDetaiID, int __productMasterID, string __barCodeNumber, int __extaDiscount, int __createdBy, DateTime __createdOn, int __updatedBy, DateTime __updateOn, bool __isDeleted, DateTime __deletedOn, bool __isBarcodeGenerated)
+		public static int Save(int __productBarCodeDetaiID, int __productID, string __barCodeNumber, int __extaDiscount, int __createdBy, DateTime __createdOn, int __updatedBy, DateTime __updateOn, bool __isDeleted, DateTime __deletedOn, bool __isBarcodeGenerated)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("ProductBarCodeDetailsSave");
 
 			db.AddInParameter(dbCommand, "ProductBarCodeDetaiID", DbType.Int32, __productBarCodeDetaiID);
-			db.AddInParameter(dbCommand, "ProductMasterID", DbType.Int32, __productMasterID);
+			db.AddInParameter(dbCommand, "ProductID", DbType.Int32, __productID);
 			db.AddInParameter(dbCommand, "BarCodeNumber", DbType.String, __barCodeNumber);
 			db.AddInParameter(dbCommand, "ExtaDiscount", DbType.Int32, __extaDiscount);
 			db.AddInParameter(dbCommand, "CreatedBy", DbType.Int32, __createdBy);

@@ -14,6 +14,7 @@ namespace SIMSClassLibrary.BLL
 
 		private int _StatusID;
 		private int _ProductBarCodeDetailD;
+		private int _InvoiceID;
 		private bool _StockIN;
 		private DateTime _StockINDate;
 		private DateTime _StockOUTDate;
@@ -34,6 +35,7 @@ namespace SIMSClassLibrary.BLL
 		{
 			_StatusID = 0;
 			_ProductBarCodeDetailD = 0;
+			_InvoiceID = 0;
 			_StockIN = false;
 			_StockINDate = DateTime.MinValue;
 			_StockOUTDate = DateTime.MinValue;
@@ -65,6 +67,12 @@ namespace SIMSClassLibrary.BLL
 		{
 			get { return _ProductBarCodeDetailD; }
 			set { _ProductBarCodeDetailD = value; }
+		}
+
+		public int InvoiceID
+		{
+			get { return _InvoiceID; }
+			set { _InvoiceID = value; }
 		}
 
 		public bool StockIN
@@ -145,6 +153,8 @@ namespace SIMSClassLibrary.BLL
 					_StatusID = Convert.ToInt32(ds.Tables[0].Rows[0]["StatusID"]);
 				if(!ds.Tables[0].Rows[0]["ProductBarCodeDetailD"].Equals(DBNull.Value))
 					_ProductBarCodeDetailD = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductBarCodeDetailD"]);
+				if(!ds.Tables[0].Rows[0]["InvoiceID"].Equals(DBNull.Value))
+					_InvoiceID = Convert.ToInt32(ds.Tables[0].Rows[0]["InvoiceID"]);
 				if(!ds.Tables[0].Rows[0]["StockIN"].Equals(DBNull.Value))
 					_StockIN = Convert.ToBoolean(ds.Tables[0].Rows[0]["StockIN"]);
 				if(!ds.Tables[0].Rows[0]["StockINDate"].Equals(DBNull.Value))
@@ -172,6 +182,7 @@ namespace SIMSClassLibrary.BLL
 			{
 				_StatusID = 0;
 				_ProductBarCodeDetailD = 0;
+				_InvoiceID = 0;
 				_StockIN = false;
 				_StockINDate = DateTime.MinValue;
 				_StockOUTDate = DateTime.MinValue;
@@ -188,7 +199,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_StatusID = SIMSClassLibrary.DAL.ProductStatusTracking.Save(_StatusID, _ProductBarCodeDetailD, _StockIN, _StockINDate, _StockOUTDate, _StockOUT, _CreatedBy, _CreatedOn, _UpdateBy, _UpdatedOn, _IsReversed, _ReversedDate, _IsActive);
+			_StatusID = SIMSClassLibrary.DAL.ProductStatusTracking.Save(_StatusID, _ProductBarCodeDetailD, _InvoiceID, _StockIN, _StockINDate, _StockOUTDate, _StockOUT, _CreatedBy, _CreatedOn, _UpdateBy, _UpdatedOn, _IsReversed, _ReversedDate, _IsActive);
 		}
 
 		public static DataTable GetAllRecords()
