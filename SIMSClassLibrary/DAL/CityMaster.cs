@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for CityMaster table.
 	/// </summary>
-	public sealed class CityMaster
+	public partial class CityMaster
 	{
 		private CityMaster() {}
 

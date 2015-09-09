@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for CountryMaster table.
 	/// </summary>
-	public sealed class CountryMasterBLL
+	public partial class CountryMasterBLL
 	{
 		#region Variables
 

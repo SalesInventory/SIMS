@@ -94,8 +94,15 @@
     <Compile Include="DAL\TaxMaster.cs" />
     <Compile Include="DAL\User.cs" />
     <Compile Include="DAL\VendorMaster.cs" />
+    <Compile Include="Extended\BLL\CityMasterBLL.cs" />
+    <Compile Include="Extended\BLL\CountryMasterBLL.cs" />
+    <Compile Include="Extended\BLL\StateMasterBLL.cs" />
     <Compile Include="Extended\BLL\UserBLL.cs" />
+    <Compile Include="Extended\BLL\VendorMasterBLL.cs" />
+    <Compile Include="Extended\DAL\CityMaster.cs" />
+    <Compile Include="Extended\DAL\StateMaster.cs" />
     <Compile Include="Extended\DAL\User.cs" />
+    <Compile Include="Extended\DAL\VendorMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

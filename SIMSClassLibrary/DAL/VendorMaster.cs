@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for VendorMaster table.
 	/// </summary>
-	public sealed class VendorMaster
+	public partial class VendorMaster
 	{
 		private VendorMaster() {}
 
@@ -47,6 +47,7 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__address"></param>
 		/// <param name="__cityID"></param>
 		/// <param name="__stateID"></param>
+		/// <param name="__countryID"></param>
 		/// <param name="__zip"></param>
 		/// <param name="__mobile"></param>
 		/// <param name="__phone"></param>
@@ -57,7 +58,7 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__updateBy"></param>
 		/// <param name="__updatedOn"></param>
 		/// <returns></returns>
-		public static int Save(int __vendorID, string __name, string __brandName, string __address, int __cityID, int __stateID, string __zip, string __mobile, string __phone, string __fax, string __email, int __createdBy, DateTime __createdOn, int __updateBy, DateTime __updatedOn)
+		public static int Save(int __vendorID, string __name, string __brandName, string __address, int __cityID, int __stateID, int __countryID, string __zip, string __mobile, string __phone, string __fax, string __email, int __createdBy, DateTime __createdOn, int __updateBy, DateTime __updatedOn)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("VendorMasterSave");
@@ -68,6 +69,7 @@ namespace SIMSClassLibrary.DAL
 			db.AddInParameter(dbCommand, "Address", DbType.String, __address);
 			db.AddInParameter(dbCommand, "CityID", DbType.Int32, __cityID);
 			db.AddInParameter(dbCommand, "StateID", DbType.Int32, __stateID);
+			db.AddInParameter(dbCommand, "CountryID", DbType.Int32, __countryID);
 			db.AddInParameter(dbCommand, "Zip", DbType.String, __zip);
 			db.AddInParameter(dbCommand, "Mobile", DbType.String, __mobile);
 			db.AddInParameter(dbCommand, "Phone", DbType.String, __phone);
