@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for VendorMaster table.
 	/// </summary>
-	public partial class VendorMasterBLL
+	public sealed class VendorMasterBLL
 	{
 		#region Variables
 
@@ -18,7 +18,6 @@ namespace SIMSClassLibrary.BLL
 		private string _Address;
 		private int _CityID;
 		private int _StateID;
-		private int _CountryID;
 		private string _Zip;
 		private string _Mobile;
 		private string _Phone;
@@ -41,7 +40,6 @@ namespace SIMSClassLibrary.BLL
 			_Address = "";
 			_CityID = 0;
 			_StateID = 0;
-			_CountryID = 0;
 			_Zip = "";
 			_Mobile = "";
 			_Phone = "";
@@ -65,7 +63,6 @@ namespace SIMSClassLibrary.BLL
 		public int VendorID
 		{
 			get { return _VendorID; }
-            set { _VendorID = value; }
 		}
 
 		public string Name
@@ -96,12 +93,6 @@ namespace SIMSClassLibrary.BLL
 		{
 			get { return _StateID; }
 			set { _StateID = value; }
-		}
-
-		public int CountryID
-		{
-			get { return _CountryID; }
-			set { _CountryID = value; }
 		}
 
 		public string Zip
@@ -178,8 +169,6 @@ namespace SIMSClassLibrary.BLL
 					_CityID = Convert.ToInt32(ds.Tables[0].Rows[0]["CityID"]);
 				if(!ds.Tables[0].Rows[0]["StateID"].Equals(DBNull.Value))
 					_StateID = Convert.ToInt32(ds.Tables[0].Rows[0]["StateID"]);
-				if(!ds.Tables[0].Rows[0]["CountryID"].Equals(DBNull.Value))
-					_CountryID = Convert.ToInt32(ds.Tables[0].Rows[0]["CountryID"]);
 				if(!ds.Tables[0].Rows[0]["Zip"].Equals(DBNull.Value))
 					_Zip = Convert.ToString(ds.Tables[0].Rows[0]["Zip"]);
 				if(!ds.Tables[0].Rows[0]["Mobile"].Equals(DBNull.Value))
@@ -207,7 +196,6 @@ namespace SIMSClassLibrary.BLL
 				_Address = "";
 				_CityID = 0;
 				_StateID = 0;
-				_CountryID = 0;
 				_Zip = "";
 				_Mobile = "";
 				_Phone = "";
@@ -222,7 +210,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_VendorID = SIMSClassLibrary.DAL.VendorMaster.Save(_VendorID, _Name, _BrandName, _Address, _CityID, _StateID, _CountryID, _Zip, _Mobile, _Phone, _Fax, _Email, _CreatedBy, _CreatedOn, _UpdateBy, _UpdatedOn);
+			_VendorID = SIMSClassLibrary.DAL.VendorMaster.Save(_VendorID, _Name, _BrandName, _Address, _CityID, _StateID, _Zip, _Mobile, _Phone, _Fax, _Email, _CreatedBy, _CreatedOn, _UpdateBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()
