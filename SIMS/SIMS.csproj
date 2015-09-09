@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SIMS</RootNamespace>
     <AssemblyName>SIMS</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -51,9 +53,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -61,9 +63,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="common\controls\ctladdvendor.ascx" />
     <Content Include="common\controls\ctlfooter.ascx" />
     <Content Include="common\controls\ctlheader.ascx" />
     <Content Include="common\dashboard.aspx" />
+    <Content Include="common\vendordetails.aspx" />
     <Content Include="controls\ctlfooter.ascx" />
     <Content Include="controls\ctlheader.ascx" />
     <Content Include="css\auth.css.map" />
@@ -106,6 +110,8 @@
     <Content Include="fonts\proximanova-semibolditalic-webfont.eot" />
     <Content Include="fonts\proximanova-semibolditalic-webfont.ttf" />
     <Content Include="fonts\proximanova-semibolditalic-webfont.woff" />
+    <Content Include="js\common\ctladdvendor.js" />
+    <Content Include="js\common\vendordetails.js" />
     <Content Include="js\login.js" />
     <Content Include="login.aspx" />
     <Content Include="sass\auth.scss" />
@@ -400,6 +406,8 @@
     <Content Include="js\plugins\select2\select2.min.js" />
     <Content Include="js\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="js\rwd-table.js" />
+    <Content Include="services\common.asmx" />
+    <Content Include="services\vendordetails.asmx" />
     <Content Include="services\productdetails.asmx" />
     <Content Include="signout.aspx" />
     <Content Include="Web.config">
@@ -428,6 +436,13 @@
     <Compile Include="admin\master\mstadmin.master.designer.cs">
       <DependentUpon>mstadmin.master</DependentUpon>
     </Compile>
+    <Compile Include="common\controls\ctladdvendor.ascx.cs">
+      <DependentUpon>ctladdvendor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\controls\ctladdvendor.ascx.designer.cs">
+      <DependentUpon>ctladdvendor.ascx</DependentUpon>
+    </Compile>
     <Compile Include="common\controls\ctlfooter.ascx.cs">
       <DependentUpon>ctlfooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,6 +470,13 @@
     </Compile>
     <Compile Include="common\masters\mstcommon.Master.designer.cs">
       <DependentUpon>mstcommon.Master</DependentUpon>
+    </Compile>
+    <Compile Include="common\vendordetails.aspx.cs">
+      <DependentUpon>vendordetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\vendordetails.aspx.designer.cs">
+      <DependentUpon>vendordetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="controls\ctlfooter.ascx.cs">
       <DependentUpon>ctlfooter.ascx</DependentUpon>
@@ -485,6 +507,14 @@
       <DependentUpon>mstsims.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\common.asmx.cs">
+      <DependentUpon>common.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="services\vendordetails.asmx.cs">
+      <DependentUpon>vendordetails.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="services\productdetails.asmx.cs">
       <DependentUpon>productdetails.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -502,7 +532,6 @@
   <ItemGroup>
     <Folder Include="fonts\dd\" />
     <Folder Include="js\admin\" />
-    <Folder Include="js\common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIMSClassLibrary\SIMSClassLibrary.csproj">
