@@ -43,18 +43,20 @@ namespace SIMSClassLibrary.DAL
 		/// <summary>
 		/// <param name="__colorID"></param>
 		/// <param name="__name"></param>
+		/// <param name="__colorCode"></param>
 		/// <param name="__createdBy"></param>
 		/// <param name="__createdOn"></param>
 		/// <param name="__updatedBy"></param>
 		/// <param name="__updatedOn"></param>
 		/// <returns></returns>
-		public static int Save(int __colorID, string __name, int __createdBy, DateTime __createdOn, int __updatedBy, DateTime __updatedOn)
+		public static int Save(int __colorID, string __name, string __colorCode, int __createdBy, DateTime __createdOn, int __updatedBy, DateTime __updatedOn)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("ProductColorMasterSave");
 
 			db.AddInParameter(dbCommand, "ColorID", DbType.Int32, __colorID);
 			db.AddInParameter(dbCommand, "Name", DbType.String, __name);
+			db.AddInParameter(dbCommand, "ColorCode", DbType.String, __colorCode);
 			db.AddInParameter(dbCommand, "CreatedBy", DbType.Int32, __createdBy);
 			db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, __createdOn);
 			db.AddInParameter(dbCommand, "UpdatedBy", DbType.Int32, __updatedBy);

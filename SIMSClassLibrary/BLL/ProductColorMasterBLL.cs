@@ -14,6 +14,7 @@ namespace SIMSClassLibrary.BLL
 
 		private int _ColorID;
 		private string _Name;
+		private string _ColorCode;
 		private int _CreatedBy;
 		private DateTime _CreatedOn;
 		private int _UpdatedBy;
@@ -27,6 +28,7 @@ namespace SIMSClassLibrary.BLL
 		{
 			_ColorID = 0;
 			_Name = "";
+			_ColorCode = "";
 			_CreatedBy = 0;
 			_CreatedOn = DateTime.MinValue;
 			_UpdatedBy = 0;
@@ -51,6 +53,12 @@ namespace SIMSClassLibrary.BLL
 		{
 			get { return _Name; }
 			set { _Name = value; }
+		}
+
+		public string ColorCode
+		{
+			get { return _ColorCode; }
+			set { _ColorCode = value; }
 		}
 
 		public int CreatedBy
@@ -89,6 +97,8 @@ namespace SIMSClassLibrary.BLL
 					_ColorID = Convert.ToInt32(ds.Tables[0].Rows[0]["ColorID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
+				if(!ds.Tables[0].Rows[0]["ColorCode"].Equals(DBNull.Value))
+					_ColorCode = Convert.ToString(ds.Tables[0].Rows[0]["ColorCode"]);
 				if(!ds.Tables[0].Rows[0]["CreatedBy"].Equals(DBNull.Value))
 					_CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CreatedBy"]);
 				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
@@ -102,6 +112,7 @@ namespace SIMSClassLibrary.BLL
 			{
 				_ColorID = 0;
 				_Name = "";
+				_ColorCode = "";
 				_CreatedBy = 0;
 				_CreatedOn = DateTime.MinValue;
 				_UpdatedBy = 0;
@@ -111,7 +122,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ColorID = SIMSClassLibrary.DAL.ProductColorMaster.Save(_ColorID, _Name, _CreatedBy, _CreatedOn, _UpdatedBy, _UpdatedOn);
+			_ColorID = SIMSClassLibrary.DAL.ProductColorMaster.Save(_ColorID, _Name, _ColorCode, _CreatedBy, _CreatedOn, _UpdatedBy, _UpdatedOn);
 		}
 
 		public static DataTable GetAllRecords()

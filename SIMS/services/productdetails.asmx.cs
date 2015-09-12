@@ -113,6 +113,22 @@ namespace SIMS.services
             }
         }
 
+        [WebMethod]
+        public string GetCategoryDetails(int UserID)
+        {
+            try
+            {
+                List<ProductCategoryMasterBLL> lstProductCategoryMasterBLL = ProductCategoryMasterBLL.GetDetailByUser(UserID);
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                return ser.Serialize(lstProductCategoryMasterBLL);
+            }
+            catch (Exception ex)
+            {
+                //ValuePad.Utility.CommonUtility.SendErrorMail(ex);
+                return "fail" + ex.StackTrace + " " + ex.Message + " ";
+            }
+        }
+
 
     }
 }

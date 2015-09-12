@@ -47,6 +47,7 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__productSizeID"></param>
 		/// <param name="__productColorID"></param>
 		/// <param name="__productCategoryID"></param>
+		/// <param name="__productForID"></param>
 		/// <param name="__name"></param>
 		/// <param name="__descryption"></param>
 		/// <param name="__shortCode"></param>
@@ -60,7 +61,7 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__createdBy"></param>
 		/// <param name="__updatedBy"></param>
 		/// <returns></returns>
-		public static int Save(int __productID, int __vendorID, int __productCompanyID, int __productSizeID, int __productColorID, int __productCategoryID, string __name, string __descryption, string __shortCode, int __quantity, decimal __totalPrice, decimal __purchasePrice, decimal __mRP, int __discount, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy)
+		public static int Save(int __productID, int __vendorID, int __productCompanyID, int __productSizeID, int __productColorID, int __productCategoryID, int __productForID, string __name, string __descryption, string __shortCode, int __quantity, decimal __totalPrice, decimal __purchasePrice, decimal __mRP, int __discount, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("ProductMasterSave");
@@ -71,6 +72,7 @@ namespace SIMSClassLibrary.DAL
 			db.AddInParameter(dbCommand, "ProductSizeID", DbType.Int32, __productSizeID);
 			db.AddInParameter(dbCommand, "ProductColorID", DbType.Int32, __productColorID);
 			db.AddInParameter(dbCommand, "ProductCategoryID", DbType.Int32, __productCategoryID);
+			db.AddInParameter(dbCommand, "ProductForID", DbType.Int32, __productForID);
 			db.AddInParameter(dbCommand, "Name", DbType.String, __name);
 			db.AddInParameter(dbCommand, "Descryption", DbType.String, __descryption);
 			db.AddInParameter(dbCommand, "ShortCode", DbType.String, __shortCode);

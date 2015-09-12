@@ -68,6 +68,7 @@
     <Compile Include="BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="BLL\ProductColorMasterBLL.cs" />
     <Compile Include="BLL\ProductCompanyMasterBLL.cs" />
+    <Compile Include="BLL\ProductForMasterBLL.cs" />
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\ProductSizeMasterBLL.cs" />
     <Compile Include="BLL\ProductStatusTrackingBLL.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="DAL\ProductCategoryMaster.cs" />
     <Compile Include="DAL\ProductColorMaster.cs" />
     <Compile Include="DAL\ProductCompanyMaster.cs" />
+    <Compile Include="DAL\ProductForMaster.cs" />
     <Compile Include="DAL\ProductMaster.cs" />
     <Compile Include="DAL\ProductSizeMaster.cs" />
     <Compile Include="DAL\ProductStatusTracking.cs" />
@@ -98,11 +100,13 @@
     <Compile Include="DAL\VendorMaster.cs" />
     <Compile Include="Extended\BLL\CityMasterBLL.cs" />
     <Compile Include="Extended\BLL\CountryMasterBLL.cs" />
+    <Compile Include="Extended\BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="Extended\BLL\StateMasterBLL.cs" />
     <Compile Include="Extended\BLL\TaxMasterBLL.cs" />
     <Compile Include="Extended\BLL\UserBLL.cs" />
     <Compile Include="Extended\BLL\VendorMasterBLL.cs" />
     <Compile Include="Extended\DAL\CityMaster.cs" />
+    <Compile Include="Extended\DAL\ProductCategoryMaster.cs" />
     <Compile Include="Extended\DAL\StateMaster.cs" />
     <Compile Include="Extended\DAL\TaxMaster.cs" />
     <Compile Include="Extended\DAL\User.cs" />

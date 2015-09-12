@@ -18,6 +18,7 @@ namespace SIMSClassLibrary.BLL
 		private int _ProductSizeID;
 		private int _ProductColorID;
 		private int _ProductCategoryID;
+		private int _ProductForID;
 		private string _Name;
 		private string _Descryption;
 		private string _ShortCode;
@@ -43,6 +44,7 @@ namespace SIMSClassLibrary.BLL
 			_ProductSizeID = 0;
 			_ProductColorID = 0;
 			_ProductCategoryID = 0;
+			_ProductForID = 0;
 			_Name = "";
 			_Descryption = "";
 			_ShortCode = "";
@@ -99,6 +101,12 @@ namespace SIMSClassLibrary.BLL
 		{
 			get { return _ProductCategoryID; }
 			set { _ProductCategoryID = value; }
+		}
+
+		public int ProductForID
+		{
+			get { return _ProductForID; }
+			set { _ProductForID = value; }
 		}
 
 		public string Name
@@ -193,6 +201,8 @@ namespace SIMSClassLibrary.BLL
 					_ProductColorID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductColorID"]);
 				if(!ds.Tables[0].Rows[0]["ProductCategoryID"].Equals(DBNull.Value))
 					_ProductCategoryID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductCategoryID"]);
+				if(!ds.Tables[0].Rows[0]["ProductForID"].Equals(DBNull.Value))
+					_ProductForID = Convert.ToInt32(ds.Tables[0].Rows[0]["ProductForID"]);
 				if(!ds.Tables[0].Rows[0]["Name"].Equals(DBNull.Value))
 					_Name = Convert.ToString(ds.Tables[0].Rows[0]["Name"]);
 				if(!ds.Tables[0].Rows[0]["Descryption"].Equals(DBNull.Value))
@@ -226,6 +236,7 @@ namespace SIMSClassLibrary.BLL
 				_ProductSizeID = 0;
 				_ProductColorID = 0;
 				_ProductCategoryID = 0;
+				_ProductForID = 0;
 				_Name = "";
 				_Descryption = "";
 				_ShortCode = "";
@@ -243,7 +254,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ProductID = SIMSClassLibrary.DAL.ProductMaster.Save(_ProductID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _ProductCategoryID, _Name, _Descryption, _ShortCode, _Quantity, _TotalPrice, _PurchasePrice, _MRP, _Discount, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_ProductID = SIMSClassLibrary.DAL.ProductMaster.Save(_ProductID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _ProductCategoryID, _ProductForID, _Name, _Descryption, _ShortCode, _Quantity, _TotalPrice, _PurchasePrice, _MRP, _Discount, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
 		}
 
 		public static DataTable GetAllRecords()
