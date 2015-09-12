@@ -33,6 +33,7 @@ namespace SIMS.services
             return "Hello World";
         }
 
+
         [WebMethod]
         [ScriptMethod]
         public string SaveVendorDetails(string vendor, int UserID)
