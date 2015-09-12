@@ -31,3 +31,14 @@ D:\SIMS\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
 D:\SIMS\SIMS\bin\SIMSClassLibrary.pdb
 D:\SIMS\SIMS\obj\Debug\SIMS.dll
 D:\SIMS\SIMS\obj\Debug\SIMS.pdb
+G:\Meet\Sims_New\SIMS\bin\SIMS.dll.config
+G:\Meet\Sims_New\SIMS\bin\SIMS.dll
+G:\Meet\Sims_New\SIMS\bin\SIMS.pdb
+G:\Meet\Sims_New\SIMS\bin\SIMSClassLibrary.dll
+G:\Meet\Sims_New\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\Meet\Sims_New\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\Meet\Sims_New\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
+G:\Meet\Sims_New\SIMS\bin\SIMSClassLibrary.pdb
+G:\Meet\Sims_New\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+G:\Meet\Sims_New\SIMS\obj\Debug\SIMS.dll
+G:\Meet\Sims_New\SIMS\obj\Debug\SIMS.pdb

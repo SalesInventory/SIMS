@@ -17,3 +17,8 @@ D:\SIMS\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 D:\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 D:\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
 G:\Meet\SIMS\SIMS\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\Sims_New\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
+G:\Meet\Sims_New\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
+G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
+G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb

@@ -113,24 +113,24 @@
                             <span class="dashboard"></span>Dashboard </asp:HyperLink>
                     </li>--%>
                     <li role="presentation" id="liAppraisal">
-                        <asp:HyperLink ID="hlnkAppraisal" runat="server" NavigateUrl="~/common/appraisal.aspx">
-                            <span class="appraisals"></span>Orders</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkAppraisal" runat="server" NavigateUrl="~/common/vendordetails.aspx">
+                            <span class="appraisals"></span>Vendor</asp:HyperLink>
                     </li>
                     <li role="presentation" id="liScheduler">
-                        <asp:HyperLink ID="hlnkScheduler" runat="server" NavigateUrl="~/common/scheduler.aspx">
-                        <span class="scheduler"></span>Schedule</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkScheduler" runat="server" NavigateUrl="~/common/taxdetails.aspx">
+                        <span class="scheduler"></span>tax</asp:HyperLink>
                     </li>
                     <li role="presentation" id="liProfile">
-                        <asp:HyperLink ID="hlnkProfile" runat="server" NavigateUrl="~/appraiser/profile.aspx">
-                        <span class="profile"></span>Profile</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkProfile" runat="server" NavigateUrl="~/common/categorydetails.aspx">
+                        <span class="profile"></span>Category</asp:HyperLink>
                     </li>
 
                     <li role="presentation" id="liJobType">
-                        <asp:HyperLink ID="hlnkJobType" runat="server" NavigateUrl="~/appraiser/jobtypes.aspx">
-                            <span class="jobtype"></span>Job Type</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkJobType" runat="server" NavigateUrl="~/common/productdetails.aspx">
+                            <span class="jobtype"></span>productdetails</asp:HyperLink>
                     </li>
 
-                    <li role="presentation" id="liCoverage">
+                    <%--<li role="presentation" id="liCoverage">
                         <asp:HyperLink ID="hlnkCoverage" runat="server" NavigateUrl="~/appraiser/coverage.aspx">
                             <span class="coverage"></span>Coverage</asp:HyperLink>
                     </li>
@@ -141,12 +141,12 @@
                     <li role="presentation" id="liInvitation">
                         <asp:HyperLink ID="hlnkMyInvitation" runat="server" NavigateUrl="~/appraiser/myinvitations.aspx">
                             <span class="invitation"></span>Invitations</asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <%--<li role="presentation" id="liTeam" style="display: none">
                         <asp:HyperLink ID="hlnkMyTeam" runat="server" NavigateUrl="~/company/myteam.aspx">
                             <span class="myteam"></span>My Team</asp:HyperLink>
                     </li>--%>
-                    <li role="presentation" id="liMSMQLog" style="display: none">
+                    <%--<li role="presentation" id="liMSMQLog" style="display: none">
                         <asp:HyperLink ID="hlMSMQLog" runat="server" NavigateUrl="~/company/apiusermsmqlog.aspx">
                             <span class="fa fa-pie-chart"></span>Log Details</asp:HyperLink>
                     </li>
@@ -157,9 +157,9 @@
                     <li role="presentation" id="liSettings">
                         <asp:HyperLink ID="hlnkSettings" runat="server" NavigateUrl="~/appraiser/settings.aspx">
                             <span class="settings"></span>Settings</asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <%--onclick="ShowSupportPage();" #liHelp ul.dropdown-menu li a --%>
-                    <li class="dropdown" id="liHelp">
+                    <%--<li class="dropdown" id="liHelp">
                         <a href="#" class="dropdown-toggle header-help-center" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="help-center"></span>
                             <div class="div-header-help-center">Help Center</div>
@@ -173,7 +173,7 @@
                             <li>
                                 <asp:HyperLink ID="hlnkRequestFeature" runat="server" onclick="openPopUpHelpCenter(2);" Text="Request a New Feature" /></li>
                         </ul>
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
         </div>
