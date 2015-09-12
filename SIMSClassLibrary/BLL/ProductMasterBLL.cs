@@ -22,6 +22,7 @@ namespace SIMSClassLibrary.BLL
 		private string _Descryption;
 		private string _ShortCode;
 		private int _Quantity;
+		private decimal _TotalPrice;
 		private decimal _PurchasePrice;
 		private decimal _MRP;
 		private int _Discount;
@@ -46,6 +47,7 @@ namespace SIMSClassLibrary.BLL
 			_Descryption = "";
 			_ShortCode = "";
 			_Quantity = 0;
+			_TotalPrice = 0;
 			_PurchasePrice = 0;
 			_MRP = 0;
 			_Discount = 0;
@@ -123,6 +125,12 @@ namespace SIMSClassLibrary.BLL
 			set { _Quantity = value; }
 		}
 
+		public decimal TotalPrice
+		{
+			get { return _TotalPrice; }
+			set { _TotalPrice = value; }
+		}
+
 		public decimal PurchasePrice
 		{
 			get { return _PurchasePrice; }
@@ -193,6 +201,8 @@ namespace SIMSClassLibrary.BLL
 					_ShortCode = Convert.ToString(ds.Tables[0].Rows[0]["ShortCode"]);
 				if(!ds.Tables[0].Rows[0]["Quantity"].Equals(DBNull.Value))
 					_Quantity = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]);
+				if(!ds.Tables[0].Rows[0]["TotalPrice"].Equals(DBNull.Value))
+					_TotalPrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["TotalPrice"]);
 				if(!ds.Tables[0].Rows[0]["PurchasePrice"].Equals(DBNull.Value))
 					_PurchasePrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["PurchasePrice"]);
 				if(!ds.Tables[0].Rows[0]["MRP"].Equals(DBNull.Value))
@@ -220,6 +230,7 @@ namespace SIMSClassLibrary.BLL
 				_Descryption = "";
 				_ShortCode = "";
 				_Quantity = 0;
+				_TotalPrice = 0;
 				_PurchasePrice = 0;
 				_MRP = 0;
 				_Discount = 0;
@@ -232,7 +243,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_ProductID = SIMSClassLibrary.DAL.ProductMaster.Save(_ProductID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _ProductCategoryID, _Name, _Descryption, _ShortCode, _Quantity, _PurchasePrice, _MRP, _Discount, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_ProductID = SIMSClassLibrary.DAL.ProductMaster.Save(_ProductID, _VendorID, _ProductCompanyID, _ProductSizeID, _ProductColorID, _ProductCategoryID, _Name, _Descryption, _ShortCode, _Quantity, _TotalPrice, _PurchasePrice, _MRP, _Discount, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
 		}
 
 		public static DataTable GetAllRecords()

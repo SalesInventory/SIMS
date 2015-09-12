@@ -45,6 +45,7 @@ namespace SIMSClassLibrary.BLL
 		public int ProductCategoryID
 		{
 			get { return _ProductCategoryID; }
+            set { _ProductCategoryID = value; }
 		}
 
 		public string Name

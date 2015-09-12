@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for StateMaster table.
 	/// </summary>
-	public sealed class StateMaster
+	public partial class StateMaster
 	{
 		private StateMaster() {}
 

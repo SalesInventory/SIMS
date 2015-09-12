@@ -71,6 +71,7 @@
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\ProductSizeMasterBLL.cs" />
     <Compile Include="BLL\ProductStatusTrackingBLL.cs" />
+    <Compile Include="BLL\ReOrderDetailsBLL.cs" />
     <Compile Include="BLL\StateMasterBLL.cs" />
     <Compile Include="BLL\TaxMasterBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
@@ -90,12 +91,22 @@
     <Compile Include="DAL\ProductMaster.cs" />
     <Compile Include="DAL\ProductSizeMaster.cs" />
     <Compile Include="DAL\ProductStatusTracking.cs" />
+    <Compile Include="DAL\ReOrderDetails.cs" />
     <Compile Include="DAL\StateMaster.cs" />
     <Compile Include="DAL\TaxMaster.cs" />
     <Compile Include="DAL\User.cs" />
     <Compile Include="DAL\VendorMaster.cs" />
+    <Compile Include="Extended\BLL\CityMasterBLL.cs" />
+    <Compile Include="Extended\BLL\CountryMasterBLL.cs" />
+    <Compile Include="Extended\BLL\StateMasterBLL.cs" />
+    <Compile Include="Extended\BLL\TaxMasterBLL.cs" />
     <Compile Include="Extended\BLL\UserBLL.cs" />
+    <Compile Include="Extended\BLL\VendorMasterBLL.cs" />
+    <Compile Include="Extended\DAL\CityMaster.cs" />
+    <Compile Include="Extended\DAL\StateMaster.cs" />
+    <Compile Include="Extended\DAL\TaxMaster.cs" />
     <Compile Include="Extended\DAL\User.cs" />
+    <Compile Include="Extended\DAL\VendorMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for TaxMaster table.
 	/// </summary>
-	public sealed class TaxMaster
+	public partial class TaxMaster
 	{
 		private TaxMaster() {}
 

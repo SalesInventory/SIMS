@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for TaxMaster table.
 	/// </summary>
-	public sealed class TaxMasterBLL
+	public partial class TaxMasterBLL
 	{
 		#region Variables
 
@@ -47,6 +47,7 @@ namespace SIMSClassLibrary.BLL
 		public int TaxID
 		{
 			get { return _TaxID; }
+            set { _TaxID = value; }
 		}
 
 		public string Name
