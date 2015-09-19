@@ -22,3 +22,4 @@ G:\Meet\Sims_New\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
 G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 G:\Meet\Sims_New\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+E:\SIMS\SIMS_GIT\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache

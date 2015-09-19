@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ProductCompanyMaster table.
 	/// </summary>
-	public sealed class ProductCompanyMasterBLL
+    public partial class ProductCompanyMasterBLL
 	{
 		#region Variables
 
@@ -45,6 +45,7 @@ namespace SIMSClassLibrary.BLL
 		public int CompanyID
 		{
 			get { return _CompanyID; }
+            set { _CompanyID = value; }
 		}
 
 		public string Name

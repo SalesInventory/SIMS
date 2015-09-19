@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ProductColorMaster table.
 	/// </summary>
-	public sealed class ProductColorMasterBLL
+    public partial class ProductColorMasterBLL
 	{
 		#region Variables
 
@@ -47,6 +47,7 @@ namespace SIMSClassLibrary.BLL
 		public int ColorID
 		{
 			get { return _ColorID; }
+            set { _ColorID = value; }
 		}
 
 		public string Name

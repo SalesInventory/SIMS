@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for InvoiceStatusMaster table.
 	/// </summary>
-	public sealed class InvoiceStatusMasterBLL
+    public partial class InvoiceStatusMasterBLL
 	{
 		#region Variables
 

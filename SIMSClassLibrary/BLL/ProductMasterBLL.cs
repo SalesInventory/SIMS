@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ProductMaster table.
 	/// </summary>
-	public sealed class ProductMasterBLL
+    public partial class ProductMasterBLL
 	{
 		#region Variables
 
@@ -71,6 +71,7 @@ namespace SIMSClassLibrary.BLL
 		public int ProductID
 		{
 			get { return _ProductID; }
+            set { _ProductID = value; }
 		}
 
 		public int VendorID

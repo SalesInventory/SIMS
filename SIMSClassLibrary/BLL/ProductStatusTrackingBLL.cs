@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ProductStatusTracking table.
 	/// </summary>
-	public sealed class ProductStatusTrackingBLL
+    public partial class ProductStatusTrackingBLL
 	{
 		#region Variables
 

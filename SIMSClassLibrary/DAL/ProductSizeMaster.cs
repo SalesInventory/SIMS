@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for ProductSizeMaster table.
 	/// </summary>
-	public sealed class ProductSizeMaster
+    public partial class ProductSizeMaster
 	{
 		private ProductSizeMaster() {}
 

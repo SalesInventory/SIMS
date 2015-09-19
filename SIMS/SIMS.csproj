@@ -65,11 +65,13 @@
   <ItemGroup>
     <Content Include="common\categorydetails.aspx" />
     <Content Include="common\controls\ctladdcategory.ascx" />
+    <Content Include="common\controls\ctladdproduct.ascx" />
     <Content Include="common\controls\ctladdtax.ascx" />
     <Content Include="common\controls\ctladdvendor.ascx" />
     <Content Include="common\controls\ctlfooter.ascx" />
     <Content Include="common\controls\ctlheader.ascx" />
     <Content Include="common\dashboard.aspx" />
+    <Content Include="common\productdetails.aspx" />
     <Content Include="common\taxdetails.aspx" />
     <Content Include="common\vendordetails.aspx" />
     <Content Include="controls\ctlfooter.ascx" />
@@ -115,11 +117,14 @@
     <Content Include="fonts\proximanova-semibolditalic-webfont.ttf" />
     <Content Include="fonts\proximanova-semibolditalic-webfont.woff" />
     <Content Include="js\common\ctladdcategory.js" />
+    <Content Include="js\common\ctladdproduct.js" />
     <Content Include="js\common\ctladdtax.js" />
     <Content Include="js\common\ctladdvendor.js" />
     <Content Include="js\common\taxdetails.js" />
     <Content Include="js\common\vendordetails.js" />
     <Content Include="js\login.js" />
+    <Content Include="js\common\productdetails.js" />
+    <Content Include="js\underscore-min.js" />
     <Content Include="login.aspx" />
     <Content Include="sass\auth.scss" />
     <Content Include="sass\base.scss" />
@@ -457,6 +462,13 @@
     <Compile Include="common\controls\ctladdcategory.ascx.designer.cs">
       <DependentUpon>ctladdcategory.ascx</DependentUpon>
     </Compile>
+    <Compile Include="common\controls\ctladdproduct.ascx.cs">
+      <DependentUpon>ctladdproduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\controls\ctladdproduct.ascx.designer.cs">
+      <DependentUpon>ctladdproduct.ascx</DependentUpon>
+    </Compile>
     <Compile Include="common\controls\ctladdtax.ascx.cs">
       <DependentUpon>ctladdtax.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -498,6 +510,13 @@
     </Compile>
     <Compile Include="common\masters\mstcommon.Master.designer.cs">
       <DependentUpon>mstcommon.Master</DependentUpon>
+    </Compile>
+    <Compile Include="common\productdetails.aspx.cs">
+      <DependentUpon>productdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\productdetails.aspx.designer.cs">
+      <DependentUpon>productdetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="common\taxdetails.aspx.cs">
       <DependentUpon>taxdetails.aspx</DependentUpon>

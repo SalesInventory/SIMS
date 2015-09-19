@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for ProductMaster table.
 	/// </summary>
-	public sealed class ProductMaster
+    public partial class ProductMaster
 	{
 		private ProductMaster() {}
 

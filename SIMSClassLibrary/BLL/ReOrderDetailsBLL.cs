@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ReOrderDetails table.
 	/// </summary>
-	public sealed class ReOrderDetailsBLL
+    public partial class ReOrderDetailsBLL
 	{
 		#region Variables
 
@@ -53,6 +53,7 @@ namespace SIMSClassLibrary.BLL
 		public int ReOrderID
 		{
 			get { return _ReOrderID; }
+            set { _ReOrderID = value; }
 		}
 
 		public int ProductID
