@@ -63,14 +63,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="barcodeprintpreview.aspx" />
+    <Content Include="common\barcodeforprint.aspx" />
     <Content Include="common\categorydetails.aspx" />
     <Content Include="common\controls\ctladdcategory.ascx" />
+    <Content Include="common\controls\ctladdCategorytype.ascx" />
     <Content Include="common\controls\ctladdproduct.ascx" />
     <Content Include="common\controls\ctladdtax.ascx" />
     <Content Include="common\controls\ctladdvendor.ascx" />
     <Content Include="common\controls\ctlfooter.ascx" />
     <Content Include="common\controls\ctlheader.ascx" />
     <Content Include="common\dashboard.aspx" />
+    <Content Include="common\invoicedetails.aspx" />
     <Content Include="common\productdetails.aspx" />
     <Content Include="common\taxdetails.aspx" />
     <Content Include="common\vendordetails.aspx" />
@@ -116,10 +120,14 @@
     <Content Include="fonts\proximanova-semibolditalic-webfont.eot" />
     <Content Include="fonts\proximanova-semibolditalic-webfont.ttf" />
     <Content Include="fonts\proximanova-semibolditalic-webfont.woff" />
+    <Content Include="index.aspx" />
+    <Content Include="js\common\barcodeforprint.js" />
     <Content Include="js\common\ctladdcategory.js" />
+    <Content Include="js\common\ctladdCategorytype.js" />
     <Content Include="js\common\ctladdproduct.js" />
     <Content Include="js\common\ctladdtax.js" />
     <Content Include="js\common\ctladdvendor.js" />
+    <Content Include="js\common\invoicedetails.js" />
     <Content Include="js\common\taxdetails.js" />
     <Content Include="js\common\vendordetails.js" />
     <Content Include="js\login.js" />
@@ -201,7 +209,6 @@
     <Content Include="sass\bootstrap\_wells.scss" />
     <Content Include="sass\main.scss" />
     <Content Include="sass\separate.scss" />
-    <Content Include="sass\styles.scss.bak" />
     <Content Include="sass\_bootstrap-compass.scss" />
     <Content Include="sass\_bootstrap-mincer.scss" />
     <Content Include="sass\_bootstrap-sprockets.scss" />
@@ -214,6 +221,7 @@
     <Content Include="img\jqueryui\index.php" />
     <Content Include="mstsims.Master" />
     <Content Include="common\masters\mstcommon.Master" />
+    <None Include="Properties\PublishProfiles\Magnifique.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -422,6 +430,7 @@
     <Content Include="services\vendordetails.asmx" />
     <Content Include="services\productdetails.asmx" />
     <Content Include="signout.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -448,6 +457,20 @@
     <Compile Include="admin\master\mstadmin.master.designer.cs">
       <DependentUpon>mstadmin.master</DependentUpon>
     </Compile>
+    <Compile Include="barcodeprintpreview.aspx.cs">
+      <DependentUpon>barcodeprintpreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="barcodeprintpreview.aspx.designer.cs">
+      <DependentUpon>barcodeprintpreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\barcodeforprint.aspx.cs">
+      <DependentUpon>barcodeforprint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\barcodeforprint.aspx.designer.cs">
+      <DependentUpon>barcodeforprint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\categorydetails.aspx.cs">
       <DependentUpon>categorydetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +484,13 @@
     </Compile>
     <Compile Include="common\controls\ctladdcategory.ascx.designer.cs">
       <DependentUpon>ctladdcategory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="common\controls\ctladdCategorytype.ascx.cs">
+      <DependentUpon>ctladdCategorytype.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\controls\ctladdCategorytype.ascx.designer.cs">
+      <DependentUpon>ctladdCategorytype.ascx</DependentUpon>
     </Compile>
     <Compile Include="common\controls\ctladdproduct.ascx.cs">
       <DependentUpon>ctladdproduct.ascx</DependentUpon>
@@ -504,6 +534,13 @@
     <Compile Include="common\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="common\invoicedetails.aspx.cs">
+      <DependentUpon>invoicedetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\invoicedetails.aspx.designer.cs">
+      <DependentUpon>invoicedetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\masters\mstcommon.Master.cs">
       <DependentUpon>mstcommon.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -546,6 +583,13 @@
     <Compile Include="controls\ctlheader.ascx.designer.cs">
       <DependentUpon>ctlheader.ascx</DependentUpon>
     </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -579,6 +623,13 @@
     </Compile>
     <Compile Include="signout.aspx.designer.cs">
       <DependentUpon>signout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility\CommonUtility.cs" />
     <Compile Include="Utility\ConfigUtility.cs" />

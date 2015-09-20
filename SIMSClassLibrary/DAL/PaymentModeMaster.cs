@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for PaymentModeMaster table.
 	/// </summary>
-	public sealed class PaymentModeMaster
+	public partial class PaymentModeMaster
 	{
 		private PaymentModeMaster() {}
 

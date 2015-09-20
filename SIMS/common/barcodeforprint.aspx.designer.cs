@@ -8,18 +8,26 @@
 //------------------------------------------------------------------------------
 
 namespace SIMS.common {
-
-
-    public partial class productdetails
-    {
+    
+    
+    public partial class barcodeforprint {
         
         /// <summary>
-        /// ctladdproduct control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SIMS.common.controls.ctladdproduct ctladdproduct;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// plBarCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plBarCode;
     }
 }

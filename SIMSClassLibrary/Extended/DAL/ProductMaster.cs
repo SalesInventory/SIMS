@@ -1,19 +1,21 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace SIMSClassLibrary.DAL
 {
+    /// <summary>
+    /// Data access class for ProductMaster table.
+    /// </summary>
     public partial class ProductMaster
     {
-       
 
         public static int AddProduct(int __productID, int __vendorID, int __productCompanyID, int __productSizeID,
-            int __productColorID, int __productCategoryID, int __productForID, string __name, string __descryption, 
-            string __shortCode, int __quantity, decimal __totalPrice, decimal __purchasePrice, decimal __mRP,
-            int __discount, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy,
-            int __rVendorID, int __rQuantity, int __minimumQuntity, bool __isActive)
+    int __productColorID, int __productCategoryID, int __productForID, string __name, string __descryption,
+    string __shortCode, int __quantity, decimal __totalPrice, decimal __purchasePrice, decimal __mRP,
+    int __discount, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy,
+    int __rVendorID, int __rQuantity, int __minimumQuntity, bool __isActive)
         {
             Database db = DatabaseFactory.CreateDatabase();
             DbCommand dbCommand = db.GetStoredProcCommand("ProductMasterAddProduct");
@@ -49,9 +51,9 @@ namespace SIMSClassLibrary.DAL
         }
 
 
-        public static DataSet GetAllRecordByUserID(int UserID, int pageId, int rows, string sortby, ref int totalrows, 
-            string searchkeyword, string Name, string Descryption, string ShortCode, string VendorName, string CompanyName, 
-            string ProductFor, string ProductColor, string ProductCategory, string ProductSize, string Quantity, string TotalPrice, 
+        public static DataSet GetAllRecordByUserID(int UserID, int pageId, int rows, string sortby, ref int totalrows,
+            string searchkeyword, string Name, string Descryption, string ShortCode, string VendorName, string CompanyName,
+            string ProductFor, string ProductColor, string ProductCategory, string ProductSize, string Quantity, string TotalPrice,
             string PurchasePrice, string MRP, string Discount)
         {
 
@@ -92,6 +94,18 @@ namespace SIMSClassLibrary.DAL
                 db.AddInParameter(dbCommand, "MRP", DbType.String, MRP);
             if (!String.IsNullOrEmpty(Discount))
                 db.AddInParameter(dbCommand, "Discount", DbType.String, Discount);
+
+            return db.ExecuteDataSet(dbCommand);
+        }
+
+
+        public static DataSet GetRecord(string BarcodeNumber, int UserID)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            DbCommand dbCommand = db.GetStoredProcCommand("ProductBarCodeDetailsGetProductByBarcodeNumber");
+
+            db.AddInParameter(dbCommand, "BarcodeNumber", DbType.String, BarcodeNumber);
+            db.AddInParameter(dbCommand, "UserID", DbType.Int32, UserID);
 
             return db.ExecuteDataSet(dbCommand);
         }

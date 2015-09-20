@@ -100,9 +100,12 @@
     <Compile Include="DAL\VendorMaster.cs" />
     <Compile Include="Extended\BLL\CityMasterBLL.cs" />
     <Compile Include="Extended\BLL\CountryMasterBLL.cs" />
+    <Compile Include="Extended\BLL\InvoiceStatusMasterBLL.cs" />
+    <Compile Include="Extended\BLL\PaymentModeMasterBLL.cs" />
     <Compile Include="Extended\BLL\ProductCategoryMasterBLL.cs" />
     <Compile Include="Extended\BLL\ProductColorMasterBLL.cs" />
     <Compile Include="Extended\BLL\ProductCompanyMasterBLL.cs" />
+    <Compile Include="Extended\BLL\productdetailsBLL.cs" />
     <Compile Include="Extended\BLL\ProductForMasterBLL.cs" />
     <Compile Include="Extended\BLL\ProductMasterBLL.cs" />
     <Compile Include="Extended\BLL\ProductSizeMasterBLL.cs" />
@@ -111,8 +114,11 @@
     <Compile Include="Extended\BLL\UserBLL.cs" />
     <Compile Include="Extended\BLL\VendorMasterBLL.cs" />
     <Compile Include="Extended\DAL\CityMaster.cs" />
+    <Compile Include="Extended\DAL\InvoiceStatusMaster.cs" />
+    <Compile Include="Extended\DAL\PaymentModeMaster.cs" />
     <Compile Include="Extended\DAL\ProductCategoryMaster.cs" />
     <Compile Include="Extended\DAL\ProductCompanyMaster.cs" />
+    <Compile Include="Extended\DAL\productdetails.cs" />
     <Compile Include="Extended\DAL\ProductMaster.cs" />
     <Compile Include="Extended\DAL\ProductSizeMaster.cs" />
     <Compile Include="Extended\DAL\StateMaster.cs" />

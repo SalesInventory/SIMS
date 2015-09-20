@@ -276,5 +276,38 @@ namespace SIMS.services
             }
         }
 
+        [WebMethod]
+        public string GetInvoiceStatusDetails(int UserID)
+        {
+            try
+            {
+                List<InvoiceStatusMasterBLL> lstInvoiceStatusMasterBLL = InvoiceStatusMasterBLL.GetDetailByUser(UserID);
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                return ser.Serialize(lstInvoiceStatusMasterBLL);
+            }
+            catch (Exception ex)
+            {
+                //ValuePad.Utility.CommonUtility.SendErrorMail(ex);
+                return "fail" + ex.StackTrace + " " + ex.Message + " ";
+            }
+        }
+
+        [WebMethod]
+        public string GetPaymentModeDetails(int UserID)
+        {
+            try
+            {
+                List<PaymentModeMasterBLL> lstPaymentModeMasterBLL = PaymentModeMasterBLL.GetDetailByUser(UserID);
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                return ser.Serialize(lstPaymentModeMasterBLL);
+            }
+            catch (Exception ex)
+            {
+                //ValuePad.Utility.CommonUtility.SendErrorMail(ex);
+                return "fail" + ex.StackTrace + " " + ex.Message + " ";
+            }
+        }
+
+
     }
 }

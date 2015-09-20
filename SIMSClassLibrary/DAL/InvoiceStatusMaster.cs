@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.DAL
 	/// <summary>
 	/// Data access class for InvoiceStatusMaster table.
 	/// </summary>
-	public sealed class InvoiceStatusMaster
+	public partial class InvoiceStatusMaster
 	{
 		private InvoiceStatusMaster() {}
 

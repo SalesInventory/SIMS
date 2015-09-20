@@ -8,7 +8,7 @@
                     <div class="modal-body clearfix">
                         <h3 class="text-uppercase text-center">Vendor Details<span class="pull-right close margin-right-10" data-dismiss="modal" onclick="HideCoveragePopup()" style="font-size: 16px;">x</span></h3>
 
-                        <div id="divCoverageArea" class="">
+                        <div id="divVendorDetails" class="">
                             <form id="frmVendorDetails" class="signup-form-2" enctype="multipart/form-data" role="form">
                                 <div class="divider col-6 clearfix">
                                     <div class="form-group">

@@ -1,19 +1,26 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctladdcategory.ascx.cs" Inherits="SIMS.common.controls.ctladdcategory" %>
-<script src='<%=ResolveUrl("~/js/common/ctladdcategory.js") %>'></script>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctladdCategorytype.ascx.cs" Inherits="SIMS.common.controls.ctladdCategorytype" %>
+<script src='<%=ResolveUrl("~/js/common/ctladdCategorytype.js") %>'></script>
 <div class="appraisal-overlay notification-window">
-    <div class="modal fade" id="mdlCategoryDetails" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="mdlCategorytypeDetails" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="overlay-form">
                     <div class="modal-body clearfix">
-                        <h3 class="text-uppercase text-center">Category Details<span class="pull-right close margin-right-10" data-dismiss="modal" style="font-size: 16px;">x</span></h3>
-                        <div id="divCategory" class="">
-                            <form id="frmCategoryDetails" class="signup-form-2" enctype="multipart/form-data" role="form">
+                        <h3 class="text-uppercase text-center">Category Type Details<span class="pull-right close margin-right-10" data-dismiss="modal" style="font-size: 16px;">x</span></h3>
+                        <div id="divCategorytype" class="">
+                            <form id="frmCategorytypeDetails" class="signup-form-2" enctype="multipart/form-data" role="form">
                                 <div class="divider col-12 clearfix no-padding">
                                     <div class="divider col-xs-9 pull-left">
-                                        <div class="form-group" style="padding: 0px !important; border: 0px;">
-                                            <label for="lblFirstName">Category Descryption</label>
-                                            <input class="form-control" id="txtCategoryName" name="txtCategoryName" placeholder="Name" type="text" />
+                                        <div class="divider col-6 clearfix">
+                                            <div class="form-group" style="padding: 0px !important; border: 0px;">
+                                                <label for="lblFirstName">Category</label>
+                                                <select class="selectpicker form-control" id="selCategory">
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="padding: 0px !important; border: 0px;">
+                                                <label for="lblFirstName">Category Type</label>
+                                                <input class="form-control" id="txtCategoryTypeName" name="txtCategoryTypeName" placeholder="Name" type="text" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-3 pull-right" style="margin-top: 10px;">

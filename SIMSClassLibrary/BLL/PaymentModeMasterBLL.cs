@@ -8,7 +8,7 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for PaymentModeMaster table.
 	/// </summary>
-	public sealed class PaymentModeMasterBLL
+    public partial class PaymentModeMasterBLL
 	{
 		#region Variables
 
