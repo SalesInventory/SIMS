@@ -331,6 +331,33 @@ namespace SIMSClassLibrary.BLL
                 return null;
         }
 
+        public static ProductDetailsBLL GetAllRecordsByUserAndBarcodeNumber(int UserID, string BarcodeNumber)
+        {
+            DataSet ds = SIMSClassLibrary.DAL.ProductDetails.GetAllRecordsByUserAndBarcodeNumber(UserID, BarcodeNumber);
+            ProductDetailsBLL objproductdetailsBLL = new ProductDetailsBLL();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    if (!ds.Tables[0].Rows[i]["Name"].Equals(DBNull.Value))
+                        objproductdetailsBLL._Name = Convert.ToString(ds.Tables[0].Rows[i]["Name"]);
+                    if (!ds.Tables[0].Rows[i]["MRP"].Equals(DBNull.Value))
+                        objproductdetailsBLL._MRP = Convert.ToDecimal(ds.Tables[0].Rows[i]["MRP"]);
+                    if (!ds.Tables[0].Rows[i]["Discount"].Equals(DBNull.Value))
+                        objproductdetailsBLL._Discount = Convert.ToInt32(ds.Tables[0].Rows[i]["Discount"]);
+                    if (!ds.Tables[0].Rows[i]["ProductBarCodeDetaiID"].Equals(DBNull.Value))
+                        objproductdetailsBLL._ProductBarCodeDetaiID = Convert.ToInt32(ds.Tables[0].Rows[i]["ProductBarCodeDetaiID"]);
+                    if (!ds.Tables[0].Rows[i]["ProductID"].Equals(DBNull.Value))
+                        objproductdetailsBLL._ProductID = Convert.ToInt32(ds.Tables[0].Rows[i]["ProductID"]);
+                    if (!ds.Tables[0].Rows[i]["BarCodeNumber"].Equals(DBNull.Value))
+                        objproductdetailsBLL._BarCodeNumber = Convert.ToString(ds.Tables[0].Rows[i]["BarCodeNumber"]);
+                }
+                return objproductdetailsBLL;
+            }
+            else
+                return null;
+        }
+
 
         #endregion
     }

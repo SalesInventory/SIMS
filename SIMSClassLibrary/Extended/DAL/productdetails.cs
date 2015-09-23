@@ -19,5 +19,16 @@ namespace SIMSClassLibrary.DAL
 
             return db.ExecuteDataSet(dbCommand);
         }
+
+        public static DataSet GetAllRecordsByUserAndBarcodeNumber(int UserID, string BarcodeNumber)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            DbCommand dbCommand = db.GetStoredProcCommand("ProductBarCodeDetailsGetProductByBarcodeNumber");
+
+            db.AddInParameter(dbCommand, "BarcodeNumber", DbType.String, BarcodeNumber);
+            db.AddInParameter(dbCommand, "UserID", DbType.Int32, UserID);
+
+            return db.ExecuteDataSet(dbCommand);
+        }
     }
 }

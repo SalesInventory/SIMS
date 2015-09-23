@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿var arrayProduct = [];
+$(document).ready(function () {
     $('#txtProductBarcodeNumber').focus();
     $('.selectpicker').selectpicker('refresh');
     $('.datepicker').datepicker();
@@ -210,10 +211,87 @@ function GetTaxDetails() {
 
 function OnChangePaymentMode() {
 
-    if($('#selPaymentMode').val() == 2){
+    if ($('#selPaymentMode').val() == 2) {
         $('#dvTransactionNumber').show();
     } else {
         $('#dvTransactionNumber').hide();
     }
 
 }
+
+function GetProductByBarcodeNumber() {
+    var params = new Object();
+    params.UserID = 1;
+    params.BarcodeNumber = $("#txtProductBarcodeNumber").val();
+    $("#txtProductBarcodeNumber").val('');
+    $.ajax({
+        type: "POST",
+        url: BaseURL + 'services/productdetails.asmx/GetAllRecordsByUserAndBarcodeNumber',
+        data: JSON.stringify(params),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response.d.indexOf('Fail') == -1) {
+                if (response.d.length > 0 && response.d != 'null') {
+
+                    var jsnData = JSON.parse(response.d);
+                    var data = $.grep(arrayProduct, function (obj) { return obj.ProductBarCodeDetaiID == jsnData.ProductBarCodeDetaiID; });
+                    //console.log(data);
+                    //console.log(data.length);
+                    if (data.length == 0) {
+                        var product = { ProductBarCodeDetaiID: jsnData.ProductBarCodeDetaiID };
+                        arrayProduct.push(product);
+                        //console.log(arrayProduct);
+
+                        var buttonlnk = '<button id="btnedit" class="btn-action padding-15  btn-decline" type="button" onclick="EditVendorDetails(this,' + jsnData.ProductBarCodeDetaiID + ');return false;" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete Product"></button>';
+                        //'<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',3,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Accept For Me" class="btn-action padding-15 btn-accept" ></button>' +
+                        //                   '<button type="button" onclick="OpenOrderAssignmentModal(' + jsnData.rows[i].ID + ',\'' + jsnData.rows[i].AssignedToUserID + '\',' + jsnData.rows[i].ProcessStatusID + ')" rel="tooltip" title="" data-placement="bottom" data-original-title="Re-assign" class="btn-action padding-15 btn-reassign" ></button>' +
+                        //                   '<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',5,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Accept With Conditions" class="btn-action padding-15 btn-accept-condition" ></button>' +
+                        //                   '<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',6,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Decline" class="btn-action padding-15 btn-decline" ></button>';
+
+                        jsnData.action = buttonlnk;
+
+                        var tr = $('<tr>');
+                        if (i == 0)
+                            tr = $('<tr class="selectedRow" style="background: none repeat scroll 0% 0% #F2FAFD !important;border: 1px solid #9CD6F3 !important;">');
+
+                        var tdBarCodeNumber = $('<td>');
+                        tdBarCodeNumber.append($('<strong>').append(jsnData.BarCodeNumber));
+                        tr.append(tdBarCodeNumber);
+
+                        var tdMRP = $('<td>');
+                        tdMRP.text(jsnData.MRP);
+                        tr.append(tdMRP);
+
+                        var tdDiscount = $('<td>');
+                        tdDiscount.text(jsnData.Discount);
+                        tr.append(tdDiscount);
+
+                        var tdQuantiry = $('<td>');
+                        tdQuantiry.text(1);
+                        tr.append(tdQuantiry);
+
+                        var tdActions = $('<td>');
+                        tdActions.append(jsnData.action);
+                        tr.append(tdActions);
+
+                        $('#tbodyProduct').append(tr);
+                    } else {
+                        SmallNotification('Product is already added.', 2);
+                    }
+                } else {
+                    SmallNotification('No data found.', 2);
+                }
+            } else {
+                SmallNotification('Unable to proceed, please try later.', -1);
+            }
+        },
+        failure: function (xhr, status, error) {
+            SmallNotification('Unable to proceed, please try later.', -1);
+        },
+        error: function (xhr, status, error) {
+            SmallNotification('Unable to proceed, please try later.', -1);
+        }
+    });
+}
+

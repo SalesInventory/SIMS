@@ -127,7 +127,11 @@
 
                     <li role="presentation" id="liJobType">
                         <asp:HyperLink ID="hlnkJobType" runat="server" NavigateUrl="~/common/productdetails.aspx">
-                            <span class="jobtype"></span>productdetails</asp:HyperLink>
+                            <span class="jobtype"></span>Product</asp:HyperLink>
+                    </li>
+                    <li role="presentation" id="liInvitation">
+                        <asp:HyperLink ID="hlnkMyInvitation" runat="server" NavigateUrl="~/common/invoicedetails.aspx">
+                            <span class="invitation"></span>Invoice</asp:HyperLink>
                     </li>
 
                     <%--<li role="presentation" id="liCoverage">
@@ -137,10 +141,6 @@
                     <li role="presentation" id="liAccounting">
                         <asp:HyperLink ID="hlnkAccounting" runat="server" NavigateUrl="~/appraiser/accounting.aspx">
                             <span class="accounting"></span>Accounting</asp:HyperLink>
-                    </li>
-                    <li role="presentation" id="liInvitation">
-                        <asp:HyperLink ID="hlnkMyInvitation" runat="server" NavigateUrl="~/appraiser/myinvitations.aspx">
-                            <span class="invitation"></span>Invitations</asp:HyperLink>
                     </li>--%>
                     <%--<li role="presentation" id="liTeam" style="display: none">
                         <asp:HyperLink ID="hlnkMyTeam" runat="server" NavigateUrl="~/company/myteam.aspx">

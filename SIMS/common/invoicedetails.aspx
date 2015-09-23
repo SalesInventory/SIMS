@@ -252,6 +252,38 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        <%--var UserID = "<%= UserID %>";
+        var UserType = "<%= UserType %>";
+        var FirstName = "<%= FirstName%>";
+        var LastName = "<%= LastName%>";
+        var AccountTypeID = "<%= AccountTypeID%>";
+        var UserStatus = "<%= UserStatus%>";
+        var UserProfileImage = "<%= UserProfileImage %>";--%>
+
+        $("#txtProductBarcodeNumber").keypress(function (event) {
+            if (event.keyCode == 13) {
+                GetProductByBarcodeNumber();
+                return false;
+            }
+        });
+
+        $(".amount-only").keydown(function (event) {
+            if (event.keyCode != 13) {
+                if (event.shiftKey == true) {
+                    event.preventDefault();
+                }
+                // Allow Only: keyboard 0-9, numpad 0-9, backspace, tab, left arrow, right arrow, delete
+                if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 190 || event.keyCode == 110) {
+                    // Allow normal operation
+                } else {
+                    // Prevent the rest
+                    event.preventDefault();
+                }
+            }
+        });
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cpContentRight" runat="server">
 </asp:Content>

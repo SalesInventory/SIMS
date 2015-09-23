@@ -20,23 +20,33 @@ namespace SIMS
                 foreach (ProductDetailsBLL objProductDetailsBLL in lstProductDetails)
                 {
                     System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
-                    using (Bitmap bitMap = new Bitmap(objProductDetailsBLL.BarCodeNumber.Length * 14, 140))
+                    //objProductDetailsBLL.BarCodeNumber.Length * 14, 200
+                    using (Bitmap bitMap = new Bitmap(147, 179))
                     {
                         using (Graphics graphics = Graphics.FromImage(bitMap))
                         {
-                            Font oFont = new Font("IDAutomationHC39M", 6);
-                            Font oFontCalibri = new Font("Calibri", 12);
+                            Font oFont = new Font("IDAutomationHC39M", 8);
+                            Font oFontCalibri = new Font("Calibri", 12, FontStyle.Bold);
+                            Font oFontHeading = new Font("Comic Sans MS", 20);
 
                             PointF point = new PointF(2f, 2f);
                             SolidBrush blackBrush = new SolidBrush(Color.Black);
                             SolidBrush whiteBrush = new SolidBrush(Color.White);
 
-                            graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
-                            graphics.DrawString("Size: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 44);
-                            graphics.DrawString("MRP: " + objProductDetailsBLL.MRP, oFontCalibri, blackBrush, 0, 60);
-                            graphics.DrawString("Code:", oFontCalibri, blackBrush, 0, 76);
-                            graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 92);
-                            graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, point);
+                            //graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
+                            //graphics.DrawString("Size: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 44);
+                            //graphics.DrawString("MRP: " + objProductDetailsBLL.MRP, oFontCalibri, blackBrush, 0, 60);
+                            //graphics.DrawString("Code:", oFontCalibri, blackBrush, 0, 76);
+                            //graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 92);
+                            //graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, point);
+
+                            graphics.DrawString("Magnifique", oFontHeading, blackBrush, 0, 0);
+                            graphics.DrawString("SIZE: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 40);
+                            graphics.DrawString("MRP: " + objProductDetailsBLL.MRP+ "₹" , oFontCalibri, blackBrush, 0, 57);
+                            graphics.DrawString("CODE:", oFontCalibri, blackBrush, 0, 74);
+                            graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 90);
+                            graphics.FillRectangle(whiteBrush, 0, 110, bitMap.Width, bitMap.Height);
+                            graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, 0, 110);
                         }
                         using (MemoryStream ms = new MemoryStream())
                         {

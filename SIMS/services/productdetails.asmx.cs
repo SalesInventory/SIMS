@@ -308,6 +308,22 @@ namespace SIMS.services
             }
         }
 
+        [WebMethod]
+        public string GetAllRecordsByUserAndBarcodeNumber(int UserID, string BarcodeNumber)
+        {
+            try
+            {
+                ProductDetailsBLL objPaymentModeMasterBLL = ProductDetailsBLL.GetAllRecordsByUserAndBarcodeNumber(UserID, BarcodeNumber);
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                return ser.Serialize(objPaymentModeMasterBLL);
+            }
+            catch (Exception ex)
+            {
+                //ValuePad.Utility.CommonUtility.SendErrorMail(ex);
+                return "fail" + ex.StackTrace + " " + ex.Message + " ";
+            }
+        }
+
 
     }
 }
