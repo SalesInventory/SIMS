@@ -53,3 +53,14 @@ G:\Meet\Sims_Final\SIMS\bin\SIMSClassLibrary.pdb
 G:\Meet\Sims_Final\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
 G:\Meet\Sims_Final\SIMS\obj\Debug\SIMS.dll
 G:\Meet\Sims_Final\SIMS\obj\Debug\SIMS.pdb
+G:\Meet\SimsToday\SIMS\bin\SIMS.dll.config
+G:\Meet\SimsToday\SIMS\bin\SIMS.dll
+G:\Meet\SimsToday\SIMS\bin\SIMS.pdb
+G:\Meet\SimsToday\SIMS\bin\SIMSClassLibrary.dll
+G:\Meet\SimsToday\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\Meet\SimsToday\SIMS\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\Meet\SimsToday\SIMS\bin\Microsoft.Practices.ObjectBuilder.dll
+G:\Meet\SimsToday\SIMS\bin\SIMSClassLibrary.pdb
+G:\Meet\SimsToday\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+G:\Meet\SimsToday\SIMS\obj\Debug\SIMS.dll
+G:\Meet\SimsToday\SIMS\obj\Debug\SIMS.pdb

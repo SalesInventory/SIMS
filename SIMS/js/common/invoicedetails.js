@@ -1,5 +1,12 @@
 ﻿var arrayProduct = [];
+var amount = 0;
 $(document).ready(function () {
+    var d = new Date();
+    $('#txtInvoiceDate').val((d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear());
+    $('#txtInvoiceDate').datepickernoConflict('setDate', (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear());
+    $('#txtPaymentDate').val((d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear());
+    $('#txtPaymentDate').datepickernoConflict('setDate', (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear());
+
     $('#txtProductBarcodeNumber').focus();
     $('.selectpicker').selectpicker('refresh');
     $('.datepicker').datepicker();
@@ -276,6 +283,17 @@ function GetProductByBarcodeNumber() {
                         tr.append(tdActions);
 
                         $('#tbodyProduct').append(tr);
+
+                        var discount = (jsnData.MRP * jsnData.Discount) / 100;
+                        console.log(discount);
+                        var finalmrp = jsnData.MRP - discount;
+                        console.log(finalmrp);
+                        amount = amount + finalmrp;
+                        
+                        $('#txtAmount').val(amount);
+                        
+                        console.log($('#txtAmount').val());
+
                     } else {
                         SmallNotification('Product is already added.', 2);
                     }
@@ -293,5 +311,12 @@ function GetProductByBarcodeNumber() {
             SmallNotification('Unable to proceed, please try later.', -1);
         }
     });
+}
+
+function DeleteProduct() {
+    var dataFromTheRow = $(obj).closest('tr');//jQuery('#userCoverageArea').jqGrid('getRowData', rowId);
+
+    $('#txtCoverageID').val(rowId);
+    $('#selState').val(dataFromTheRow.find('td').eq(0).text());
 }
 

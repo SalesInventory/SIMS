@@ -28,3 +28,8 @@ G:\Meet\Sims_Final\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 G:\Meet\Sims_Final\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
 G:\Meet\Sims_Final\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 G:\Meet\Sims_Final\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsToday\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsToday\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb

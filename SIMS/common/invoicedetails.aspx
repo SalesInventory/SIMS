@@ -13,6 +13,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpContent" runat="server">
     <div class="page-wrapper col-md-10 col-md-offset-1 col-sm-10 col-xs-12">
+        <%--<div class="col-xs-12">
+            Bill Amount: 0.0
+        </div>--%>
         <div class="wrapper-titles">
             <%--<h3 class="text-uppercase margin-top-5 text-center">Invoice Details</h3>--%>
         </div>
@@ -23,7 +26,7 @@
                     <div class="divider">
                         <div class="divider-break"></div>
                     </div>
-                    <h3 class="text-uppercase margin-top-5 text-center">Product Details</h3>
+                    <h3 class="text-uppercase margin-top-5 text-center">Invoice Details</h3>
                     <%--<div class="divider col-12 clearfix no-padding" style="padding: 0px !important; border: none !important;">
                         <div class="form-group no-padding" style="padding: 5px 8px !important;">
                             <label for="lblFirstName">Product Barcode Number</label>
