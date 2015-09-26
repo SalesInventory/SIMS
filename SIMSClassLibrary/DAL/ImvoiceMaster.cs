@@ -42,6 +42,7 @@ namespace SIMSClassLibrary.DAL
 		/// Saves a record into the ImvoiceMaster table.
 		/// <summary>
 		/// <param name="__invoiceID"></param>
+		/// <param name="__customerID"></param>
 		/// <param name="__paymentModeID"></param>
 		/// <param name="__invoiceStatusID"></param>
 		/// <param name="__invoiceNumber"></param>
@@ -53,17 +54,19 @@ namespace SIMSClassLibrary.DAL
 		/// <param name="__taxes"></param>
 		/// <param name="__total"></param>
 		/// <param name="__roundOfValue"></param>
+		/// <param name="__transactionNumber"></param>
 		/// <param name="__createdOn"></param>
 		/// <param name="__updatedOn"></param>
 		/// <param name="__createdBy"></param>
 		/// <param name="__updatedBy"></param>
 		/// <returns></returns>
-		public static int Save(int __invoiceID, int __paymentModeID, int __invoiceStatusID, string __invoiceNumber, decimal __amount, DateTime __invoiceDate, DateTime __paymentDate, decimal __discount, decimal __subTotal, decimal __taxes, decimal __total, decimal __roundOfValue, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy)
+		public static int Save(int __invoiceID, int __customerID, int __paymentModeID, int __invoiceStatusID, string __invoiceNumber, decimal __amount, DateTime __invoiceDate, DateTime __paymentDate, decimal __discount, decimal __subTotal, decimal __taxes, decimal __total, decimal __roundOfValue, string __transactionNumber, DateTime __createdOn, DateTime __updatedOn, int __createdBy, int __updatedBy)
 		{
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetStoredProcCommand("ImvoiceMasterSave");
 
 			db.AddInParameter(dbCommand, "InvoiceID", DbType.Int32, __invoiceID);
+			db.AddInParameter(dbCommand, "CustomerID", DbType.Int32, __customerID);
 			db.AddInParameter(dbCommand, "PaymentModeID", DbType.Int32, __paymentModeID);
 			db.AddInParameter(dbCommand, "InvoiceStatusID", DbType.Int32, __invoiceStatusID);
 			db.AddInParameter(dbCommand, "InvoiceNumber", DbType.String, __invoiceNumber);
@@ -75,6 +78,7 @@ namespace SIMSClassLibrary.DAL
 			db.AddInParameter(dbCommand, "Taxes", DbType.Decimal, __taxes);
 			db.AddInParameter(dbCommand, "Total", DbType.Decimal, __total);
 			db.AddInParameter(dbCommand, "RoundOfValue", DbType.Decimal, __roundOfValue);
+			db.AddInParameter(dbCommand, "TransactionNumber", DbType.String, __transactionNumber);
 			db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, __createdOn);
 			db.AddInParameter(dbCommand, "UpdatedOn", DbType.DateTime, __updatedOn);
 			db.AddInParameter(dbCommand, "CreatedBy", DbType.Int32, __createdBy);

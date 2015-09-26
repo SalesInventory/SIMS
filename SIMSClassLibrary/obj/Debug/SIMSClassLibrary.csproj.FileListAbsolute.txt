@@ -33,3 +33,13 @@ G:\Meet\SimsToday\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
 G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 G:\Meet\SimsToday\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+G:\Meet\SIMSgit\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
+G:\Meet\SIMSgit\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
+G:\Meet\SIMSgit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\SIMSgit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
+G:\Meet\SIMSgit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsTodayForGit\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsTodayForGit\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb

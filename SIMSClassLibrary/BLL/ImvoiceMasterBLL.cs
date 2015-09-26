@@ -8,11 +8,12 @@ namespace SIMSClassLibrary.BLL
 	/// <summary>
 	/// BLL class for ImvoiceMaster table.
 	/// </summary>
-    public partial class ImvoiceMasterBLL
+	public sealed class ImvoiceMasterBLL
 	{
 		#region Variables
 
 		private int _InvoiceID;
+		private int _CustomerID;
 		private int _PaymentModeID;
 		private int _InvoiceStatusID;
 		private string _InvoiceNumber;
@@ -24,6 +25,7 @@ namespace SIMSClassLibrary.BLL
 		private decimal _Taxes;
 		private decimal _Total;
 		private decimal _RoundOfValue;
+		private string _TransactionNumber;
 		private DateTime _CreatedOn;
 		private DateTime _UpdatedOn;
 		private int _CreatedBy;
@@ -36,6 +38,7 @@ namespace SIMSClassLibrary.BLL
 		public ImvoiceMasterBLL()
 		{
 			_InvoiceID = 0;
+			_CustomerID = 0;
 			_PaymentModeID = 0;
 			_InvoiceStatusID = 0;
 			_InvoiceNumber = "";
@@ -47,6 +50,7 @@ namespace SIMSClassLibrary.BLL
 			_Taxes = 0;
 			_Total = 0;
 			_RoundOfValue = 0;
+			_TransactionNumber = "";
 			_CreatedOn = DateTime.MinValue;
 			_UpdatedOn = DateTime.MinValue;
 			_CreatedBy = 0;
@@ -65,6 +69,12 @@ namespace SIMSClassLibrary.BLL
 		public int InvoiceID
 		{
 			get { return _InvoiceID; }
+		}
+
+		public int CustomerID
+		{
+			get { return _CustomerID; }
+			set { _CustomerID = value; }
 		}
 
 		public int PaymentModeID
@@ -133,6 +143,12 @@ namespace SIMSClassLibrary.BLL
 			set { _RoundOfValue = value; }
 		}
 
+		public string TransactionNumber
+		{
+			get { return _TransactionNumber; }
+			set { _TransactionNumber = value; }
+		}
+
 		public DateTime CreatedOn
 		{
 			get { return _CreatedOn; }
@@ -167,6 +183,8 @@ namespace SIMSClassLibrary.BLL
 			{
 				if(!ds.Tables[0].Rows[0]["InvoiceID"].Equals(DBNull.Value))
 					_InvoiceID = Convert.ToInt32(ds.Tables[0].Rows[0]["InvoiceID"]);
+				if(!ds.Tables[0].Rows[0]["CustomerID"].Equals(DBNull.Value))
+					_CustomerID = Convert.ToInt32(ds.Tables[0].Rows[0]["CustomerID"]);
 				if(!ds.Tables[0].Rows[0]["PaymentModeID"].Equals(DBNull.Value))
 					_PaymentModeID = Convert.ToInt32(ds.Tables[0].Rows[0]["PaymentModeID"]);
 				if(!ds.Tables[0].Rows[0]["InvoiceStatusID"].Equals(DBNull.Value))
@@ -189,6 +207,8 @@ namespace SIMSClassLibrary.BLL
 					_Total = Convert.ToDecimal(ds.Tables[0].Rows[0]["Total"]);
 				if(!ds.Tables[0].Rows[0]["RoundOfValue"].Equals(DBNull.Value))
 					_RoundOfValue = Convert.ToDecimal(ds.Tables[0].Rows[0]["RoundOfValue"]);
+				if(!ds.Tables[0].Rows[0]["TransactionNumber"].Equals(DBNull.Value))
+					_TransactionNumber = Convert.ToString(ds.Tables[0].Rows[0]["TransactionNumber"]);
 				if(!ds.Tables[0].Rows[0]["CreatedOn"].Equals(DBNull.Value))
 					_CreatedOn = Convert.ToDateTime(ds.Tables[0].Rows[0]["CreatedOn"]);
 				if(!ds.Tables[0].Rows[0]["UpdatedOn"].Equals(DBNull.Value))
@@ -201,6 +221,7 @@ namespace SIMSClassLibrary.BLL
 			else
 			{
 				_InvoiceID = 0;
+				_CustomerID = 0;
 				_PaymentModeID = 0;
 				_InvoiceStatusID = 0;
 				_InvoiceNumber = "";
@@ -212,6 +233,7 @@ namespace SIMSClassLibrary.BLL
 				_Taxes = 0;
 				_Total = 0;
 				_RoundOfValue = 0;
+				_TransactionNumber = "";
 				_CreatedOn = DateTime.MinValue;
 				_UpdatedOn = DateTime.MinValue;
 				_CreatedBy = 0;
@@ -221,7 +243,7 @@ namespace SIMSClassLibrary.BLL
 
 		public void Save()
 		{
-			_InvoiceID = SIMSClassLibrary.DAL.ImvoiceMaster.Save(_InvoiceID, _PaymentModeID, _InvoiceStatusID, _InvoiceNumber, _Amount, _InvoiceDate, _PaymentDate, _Discount, _SubTotal, _Taxes, _Total, _RoundOfValue, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
+			_InvoiceID = SIMSClassLibrary.DAL.ImvoiceMaster.Save(_InvoiceID, _CustomerID, _PaymentModeID, _InvoiceStatusID, _InvoiceNumber, _Amount, _InvoiceDate, _PaymentDate, _Discount, _SubTotal, _Taxes, _Total, _RoundOfValue, _TransactionNumber, _CreatedOn, _UpdatedOn, _CreatedBy, _UpdatedBy);
 		}
 
 		public static DataTable GetAllRecords()

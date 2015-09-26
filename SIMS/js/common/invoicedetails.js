@@ -15,6 +15,7 @@ $(document).ready(function () {
     ShowInvoiceDetails();
     ShowPaymentModeDetails();
     GetTaxDetails();
+    ValidationInvoiceDetails();
 });
 
 function ShowCountry() {
@@ -180,7 +181,7 @@ function ShowPaymentModeDetails() {
 function GetTaxDetails() {
 
     //var select = '<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input id="chkAllJobTypes" type="checkbox" class="checkbox style-0" id="-1"  onchange="CoverAllJobTypes(this)"/><span>Select All</span></label></div></div></div>';
-    var taxrow = '<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input type="checkbox" class="checkbox style-0" id="{1}" onchange = "ChangeJobTypeAllSelect(this);return false;"/><span>{0}</span></label></div></div></div>';
+    var taxrow = '<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input type="checkbox" class="checkbox style-0" id="{1}" data-percentage="{2}" onchange = "ChangeJobTypeAllSelect(this);return false;"/><span>{0}</span></label></div></div></div>';
     var params = new Object();
     params.UserID = 1;
     $.ajax({
@@ -196,7 +197,7 @@ function GetTaxDetails() {
                     var jsnData = JSON.parse(response.d);
                     var strData = "";
                     for (i = 0; i < jsnData.length; i++) {
-                        strData += String.format(taxrow, jsnData[i].Name + ' - ' + jsnData[i].Percentage + '%', jsnData[i].TaxID);
+                        strData += String.format(taxrow, jsnData[i].Name + ' - ' + jsnData[i].Percentage + '%', jsnData[i].TaxID, jsnData[i].Percentage);
                     }
                     $("#dvTaxdetails").html(strData);
                     //$("#dvTaxdetails").html(select + strData);
@@ -243,18 +244,11 @@ function GetProductByBarcodeNumber() {
 
                     var jsnData = JSON.parse(response.d);
                     var data = $.grep(arrayProduct, function (obj) { return obj.ProductBarCodeDetaiID == jsnData.ProductBarCodeDetaiID; });
-                    //console.log(data);
-                    //console.log(data.length);
                     if (data.length == 0) {
                         var product = { ProductBarCodeDetaiID: jsnData.ProductBarCodeDetaiID };
                         arrayProduct.push(product);
-                        //console.log(arrayProduct);
 
-                        var buttonlnk = '<button id="btnedit" class="btn-action padding-15  btn-decline" type="button" onclick="EditVendorDetails(this,' + jsnData.ProductBarCodeDetaiID + ');return false;" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete Product"></button>';
-                        //'<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',3,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Accept For Me" class="btn-action padding-15 btn-accept" ></button>' +
-                        //                   '<button type="button" onclick="OpenOrderAssignmentModal(' + jsnData.rows[i].ID + ',\'' + jsnData.rows[i].AssignedToUserID + '\',' + jsnData.rows[i].ProcessStatusID + ')" rel="tooltip" title="" data-placement="bottom" data-original-title="Re-assign" class="btn-action padding-15 btn-reassign" ></button>' +
-                        //                   '<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',5,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Accept With Conditions" class="btn-action padding-15 btn-accept-condition" ></button>' +
-                        //                   '<button type="button" onclick="AcceptDeclinePopUp(' + jsnData.rows[i].ID + ',' + jsnData.rows[i].StatusTrackingID + ',' + jsnData.rows[i].InstructionSettingIsActive + ',\'' + jsnData.rows[i].FileNum + '\',\'' + AppraisalListInspectionDate + '\',\'' + AppraisalListInspectionTime + '\',\'' + AppraisalListEstimatedDate + '\',6,\'' + jsnData.rows[i].AssignedToUserID + '\',\'' + jsnData.rows[i].DueDate + '\')" rel="tooltip" title="" data-placement="bottom" data-original-title="Decline" class="btn-action padding-15 btn-decline" ></button>';
+                        var buttonlnk = '<button id="btnedit" class="btn-action padding-15  btn-decline" type="button" onclick="DeleteProduct(this,' + jsnData.ProductBarCodeDetaiID + ');return false;" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete Product"></button>';
 
                         jsnData.action = buttonlnk;
 
@@ -285,14 +279,16 @@ function GetProductByBarcodeNumber() {
                         $('#tbodyProduct').append(tr);
 
                         var discount = (jsnData.MRP * jsnData.Discount) / 100;
-                        console.log(discount);
                         var finalmrp = jsnData.MRP - discount;
-                        console.log(finalmrp);
                         amount = amount + finalmrp;
-                        
-                        $('#txtAmount').val(amount);
-                        
-                        console.log($('#txtAmount').val());
+
+                        OnChangeOfDicount();
+                        //var extradiscount = $('#txtDiscount').val();
+                        //var finalamount = amount;
+                        //if (extradiscount != '') {
+                        //    finalamount = amount - ((amount * extradiscount) / 100);
+                        //}
+                        //$('#txtAmount').val(finalamount);
 
                     } else {
                         SmallNotification('Product is already added.', 2);
@@ -313,10 +309,183 @@ function GetProductByBarcodeNumber() {
     });
 }
 
-function DeleteProduct() {
-    var dataFromTheRow = $(obj).closest('tr');//jQuery('#userCoverageArea').jqGrid('getRowData', rowId);
+function DeleteProduct(obj, barcodeid) {
 
-    $('#txtCoverageID').val(rowId);
-    $('#selState').val(dataFromTheRow.find('td').eq(0).text());
+    $.SmartMessageBox({
+        title: "Invoice",
+        content: 'Are you sure, you want to delete this product?',
+        buttons: '[CANCEL][OK]'
+    }, function (ButtonPressed) {
+        if (ButtonPressed === "OK") {
+            var product = { ProductBarCodeDetaiID: barcodeid };
+            arrayProduct.pop(product);
+            console.log(arrayProduct);
+            var dataFromTheRow = $(obj).closest('tr');//jQuery('#userCoverageArea').jqGrid('getRowData', rowId);
+            var deletedproductamount = dataFromTheRow.find('td').eq(1).text();
+            var deletedproductdiscount = dataFromTheRow.find('td').eq(2).text();
+            var deletedproductamount = parseFloat(deletedproductamount) - ((parseFloat(deletedproductamount) * parseFloat(deletedproductdiscount)) / 100);
+            amount = amount - deletedproductamount;
+            OnChangeOfDicount();
+            //$('#txtAmount').val(amount);
+            $(obj).closest('tr').remove();
+        } else if (ButtonPressed === "CANCEL") {
+            //SmallNotification('Abort', 0);
+        }
+    });
 }
+
+function ValidationInvoiceDetails() {
+
+    validation = $("#frmProfileDetail").validate({
+        //focusCleanup: true,
+        rules: {
+            txtInvoiceDate: {
+                required: true,
+            },
+            txtInvoiceNumber: {
+                required: true,
+                number: true,
+                maxlength: 20
+            },
+            txtFirstName: {
+                required: true,
+                maxlength: 50
+            },
+            txtLastName: {
+                required: true,
+                maxlength: 50
+            },
+            txtMobile: {
+                //required: true,
+                number: true,
+                maxlength: 20
+            },
+            txtEmail: {
+                maxlength: 100,
+                email: true,
+            },
+            txtAmount: {
+                required: true,
+                number: true,
+                maxlength: 7
+            },
+            txtTransactionNumber: {
+                required: true,
+                maxlength: 100
+            },
+            txtZip: {
+                number: true,
+                maxlength: 20
+            },
+            txtPhone: {
+                number: true,
+                maxlength: 20
+            },
+            txtDiscount: {
+                number: true,
+                maxlength: 2
+            },
+            //txtAmountGiven: {
+            //    number: true,
+            //},
+            //txtReturnAmount: {
+            //    number: true,
+            //},
+        },
+        messages: {
+            txtInvoiceDate: {
+                required: "required",
+            },
+            txtInvoiceNumber: {
+                required: "required",
+                number: "Please enter valid Invoice Number",
+                maxlength: "Percentage should not more than 20 characters"
+            },
+            txtFirstName: {
+                required: "required",
+                maxlength: "First Name should not more than 50 characters"
+            },
+            txtLastName: {
+                required: "required",
+                maxlength: "Last Name should not more than 50 characters"
+            },
+            txtMobile: {
+                //required: "required",
+                number: "Please enter valid Mobile Number",
+                maxlength: "Mobile should not more than 20 characters"
+            },
+            txtEmail: {
+                maxlength: "Name should not more than 100 characters",
+                email: "Please enter valid Email",
+            },
+            txtAmount: {
+                required: "required",
+                number: "Please enter valid Amount",
+                maxlength: "Amount should not more than 7 characters"
+            },
+            txtTransactionNumber: {
+                required: "required",
+                maxlength: "Transaction Number should not more than 100 characters"
+            },
+            txtZip: {
+                number: "Please enter Zip",
+                maxlength: "Zip should not more than 20 characters"
+            },
+            txtPhone: {
+                number: "Please enter Phone",
+                maxlength: "Phone should not more than 20 characters"
+            },
+            txtDiscount: {
+                number: "Please enter Discount",
+                maxlength: "Name should not more than 2 characters"
+            },
+        },
+        errorPlacement: function (error, element) {
+            error.insertBefore(element);
+        },
+
+        submitHandler: function (form) {
+
+            return false;
+
+        }
+    });
+}
+
+function isNumber(event, obj) {
+    if (event) {
+        //console.log($(obj).val().indexOf('.'));
+        var charCode = (event.which) ? event.which : event.keyCode;
+
+        if (charCode == 110)
+            return false;
+        if (charCode != 190 && charCode > 31 &&
+           (charCode < 48 || charCode > 57) &&
+           (charCode < 96 || charCode > 105) &&
+           (charCode < 37 || charCode > 40) && charCode != 110 && charCode != 8 && charCode != 46)
+            return false;
+        else if ((charCode == 190 || charCode == 110) && $(obj).val().indexOf('.') != -1)
+            return false;
+    }
+    return true;
+}
+
+function OnChangeOfDicount() {
+    var extradiscount = $('#txtDiscount').val();
+    var finalamount = amount;
+    if (extradiscount != '') {
+        finalamount = amount - ((amount * extradiscount) / 100);
+    }
+
+    //var totaltax = 0.0;
+    //$("#dvTaxdetails").find("input[type=checkbox]").each(function () {
+    //    if (!$(this).is(':checked')) {
+    //        totaltax = totaltax + parseFloat((this).attr("data-percentage"));
+    //    }
+    //});
+    //console.log(totaltax);
+
+    $('#txtAmount').val(finalamount);
+}
+
 

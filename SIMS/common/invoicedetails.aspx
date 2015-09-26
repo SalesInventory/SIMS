@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="lblFirstName">Invoice Number</label>
-                            <input class="form-control" id="txtInvoiceNumber" name="txtInvoiceNumber" placeholder="Invoice Number" type="text" />
+                            <input class="form-control" onkeydown="return isNumber(event,this);" id="txtInvoiceNumber" name="txtInvoiceNumber" placeholder="Invoice Number" type="text" />
                         </div>
                     </div>
                     <div class="table-responsive" data-pattern="priority-columns">
@@ -132,14 +132,14 @@
                         </div>
                         <div class="form-group">
                             <label for="lblFirstName">Mobile</label>
-                            <input class="form-control" id="txtMobile" name="txtMobile" placeholder="Mobile" type="text" />
+                            <input class="form-control" onkeydown="return isNumber(event,this);" id="txtMobile" name="txtMobile" placeholder="Mobile" type="text" />
                         </div>
                     </div>
                     
                     <div class="divider col-3 clearfix">
                         <div class="form-group">
                             <label for="lblFirstName">Zip</label>
-                            <input class="form-control" id="txtZip" name="txtZip" placeholder="Zip" type="text" />
+                            <input class="form-control" onkeydown="return isNumber(event,this);" id="txtZip" name="txtZip" placeholder="Zip" type="text" />
                         </div>
                         <div class="form-group">
                             <label for="lblCompanyName">Country</label>
@@ -159,7 +159,7 @@
 
                         <div class="form-group">
                             <label for="lblFirstName">Phone</label>
-                            <input class="form-control" id="txtPhone" name="txtPhone" placeholder="Phone" type="text" />
+                            <input class="form-control" onkeydown="return isNumber(event,this);" id="txtPhone" name="txtPhone" placeholder="Phone" type="text" />
                         </div>
                         <div class="form-group">
                             <label for="lblFirstName">Birth Date</label>
@@ -204,11 +204,11 @@
                         </div>
                         <div class="form-group">
                             <label for="lblFirstName">Amount</label>
-                            <input class="form-control" id="txtAmount" name="txtAmount" placeholder="Amount" type="text" />
+                            <input class="form-control amount-only" id="txtAmount" name="txtAmount" placeholder="Amount" type="text" readonly="readonly"/>
                         </div>
                         <div class="form-group no-padding" style="padding: 5px 8px !important;">
                             <label for="lblFirstName">Discount</label>
-                            <input class="form-control" id="txtDiscount" name="txtDiscount" placeholder="Discount" type="text" />
+                            <input class="form-control amount-only" onkeyup="OnChangeOfDicount();" id="txtDiscount" name="txtDiscount" placeholder="Discount" type="text" maxlength="2" />
                         </div>
                         <%--<div class="form-group">
                             <label for="lblFirstName">Transcation Number</label>
@@ -228,11 +228,11 @@
                     <div class="divider col-6 clearfix">
                         <div class="form-group">
                             <label for="lblFirstName">Amount Given</label>
-                            <input class="form-control" id="txtAmountGiven" name="txtAmountGiven" placeholder="Amount Given" type="text" />
+                            <input class="form-control amount-only" id="txtAmountGiven" name="txtAmountGiven" placeholder="Amount Given" type="text" />
                         </div>
                         <div class="form-group">
                             <label for="lblFirstName">Return Amount</label>
-                            <input class="form-control" id="txtReturnAmount" name="txtReturnAmount" placeholder="Return Amount" type="text" />
+                            <input class="form-control amount-only" id="txtReturnAmount" name="txtReturnAmount" placeholder="Return Amount" type="text" readonly="readonly" />
                         </div>
                     </div>
                 </div>
