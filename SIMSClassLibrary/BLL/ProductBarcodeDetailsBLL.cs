@@ -55,6 +55,7 @@ namespace SIMSClassLibrary.BLL
 		public int ProductBarCodeDetaiID
 		{
 			get { return _ProductBarCodeDetaiID; }
+            set { _ProductBarCodeDetaiID = value; }
 		}
 
 		public int ProductID

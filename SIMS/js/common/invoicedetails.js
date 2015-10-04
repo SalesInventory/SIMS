@@ -1,5 +1,6 @@
 ﻿var arrayProduct = [];
 var amount = 0;
+var hfcustomerID = 0;
 $(document).ready(function () {
     var d = new Date();
     $('#txtInvoiceDate').val((d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear());
@@ -181,7 +182,7 @@ function ShowPaymentModeDetails() {
 function GetTaxDetails() {
 
     //var select = '<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input id="chkAllJobTypes" type="checkbox" class="checkbox style-0" id="-1"  onchange="CoverAllJobTypes(this)"/><span>Select All</span></label></div></div></div>';
-    var taxrow = '<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input type="checkbox" class="checkbox style-0" id="{1}" data-percentage="{2}" onchange = "ChangeJobTypeAllSelect(this);return false;"/><span>{0}</span></label></div></div></div>';
+    var taxrow = '<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><div id="" class="row well-sm line-height-48"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"><label class="checkbox-inline margin-bottom-23"><input type="checkbox" class="checkbox style-0" id="{1}" data-percentage="{2}" onchange = "OnChangeOfDicount();return false;"/><span>{0}</span></label></div></div></div>';
     var params = new Object();
     params.UserID = 1;
     $.ajax({
@@ -445,7 +446,7 @@ function ValidationInvoiceDetails() {
         },
 
         submitHandler: function (form) {
-
+            SaveInvoiceDetails();
             return false;
 
         }
@@ -477,15 +478,108 @@ function OnChangeOfDicount() {
         finalamount = amount - ((amount * extradiscount) / 100);
     }
 
-    //var totaltax = 0.0;
-    //$("#dvTaxdetails").find("input[type=checkbox]").each(function () {
-    //    if (!$(this).is(':checked')) {
-    //        totaltax = totaltax + parseFloat((this).attr("data-percentage"));
-    //    }
-    //});
-    //console.log(totaltax);
-
-    $('#txtAmount').val(finalamount);
+    var totaltax = 0.0;
+    $("#dvTaxdetails").find("input[type=checkbox]").each(function () {
+        if ($(this).is(':checked')) {
+            totaltax = totaltax + parseFloat($(this).attr("data-percentage"));
+        }
+    });
+    if (totaltax > 0) {
+        totaltax = finalamount + ((finalamount * totaltax) / 100);
+        $('#txtAmount').val(totaltax);
+    }
+    else{
+        $('#txtAmount').val(finalamount);
+    }
 }
+
+function SaveInvoiceDetails() {
+    var params = new Object();
+    params.UserID = 1;
+
+    var invoiceDetails = new Object();
+    invoiceDetails.InvoiceID = $('#txtInvoiceNumber').val();
+    invoiceDetails.InvoiceDate = $('#txtInvoiceDate').val();
+    invoiceDetails.InvoiceStatusID = $('#selInvoiceStatus').val();
+    invoiceDetails.InvoiceNumber = $('#txtInvoiceNumber').val();
+    invoiceDetails.PaymentModeID = $('#selPaymentMode').val();
+    invoiceDetails.Amount = $('#txtAmount').val();
+    invoiceDetails.PaymentDate = $('#txtPaymentDate').val();
+    invoiceDetails.Discount = $('#txtDiscount').val();
+    invoiceDetails.SubTotal = amount;
+
+    var totaltax = 0.0;
+    $("#dvTaxdetails").find("input[type=checkbox]").each(function () {
+        if ($(this).is(':checked')) {
+            totaltax = totaltax + parseFloat($(this).attr("data-percentage"));
+        }
+    });
+
+    invoiceDetails.Taxes = totaltax;
+    invoiceDetails.Total = $('#txtAmount').val();
+    invoiceDetails.RoundOfValue = $('#txtAmount').val();
+    invoiceDetails.TransactionNumber = $('#txtTransactionNumber').val();
+
+    params.InvoiceDetails = invoiceDetails;
+    params.ProductDetails = arrayProduct
+
+    var customer = new Object();
+    customer.CustomerID = hfcustomerID;
+    customer.FirstName = $('#txtFirstName').val();
+    customer.LastName = $('#txtLastName').val();
+    customer.Address = $('#txtAddress').val();
+    customer.CityID = $('#selCity').val();
+    customer.StateID = $('#selState').val();
+    customer.CoutryID = $('#selCountry').val();
+    customer.Zip = $('#txtZip').val();
+    customer.Email = $('#txtEmail').val();
+    customer.Mobile = $('#txtMobile').val();
+    customer.Phone = $('#txtPhone').val();
+    customer.BirthDate = $('#txtBirthDate').val();
+
+    params.CustomerDetails = customer;
+
+    var arrayTax = [];
+    $("#dvTaxdetails").find("input[type=checkbox]").each(function () {
+        if ($(this).is(':checked')) {
+            var tax = { TaxID: $(this).attr('id') };
+            arrayTax.push(tax);
+        }
+    });
+    params.TaxDetails = arrayTax
+
+    $.ajax({
+        type: "POST",
+        //async: false,
+        url: BaseURL + 'services/productdetails.asmx/SaveInvoiceDetails',
+        data: JSON.stringify(params),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response.d.indexOf('fail') == -1) {
+                if (response.d.length > 0) {
+                    var jsnData = JSON.parse(response.d);
+                    var strData = "";
+                    for (i = 0; i < jsnData.length; i++) {
+                        strData += String.format(taxrow, jsnData[i].Name + ' - ' + jsnData[i].Percentage + '%', jsnData[i].TaxID, jsnData[i].Percentage);
+                    }
+                    $("#dvTaxdetails").html(strData);
+                    //$("#dvTaxdetails").html(select + strData);
+                } else {
+                    SmallNotification('Unable to proceed, please try later.', -1);
+                }
+            } else {
+                SmallNotification('Unable to proceed, please try later.', -1);
+            }
+        },
+        failure: function (xhr, status, error) {
+            AjaxErrorHandling(status);
+        },
+        error: function (xhr, status, error) {
+            AjaxErrorHandling(status);
+        }
+    });
+}
+
 
 

@@ -43,3 +43,8 @@ G:\Meet\SimsTodayForGit\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
 G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
 G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
 G:\Meet\SimsTodayForGit\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsNew\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsNew\SIMSClassLibrary\bin\Debug\SIMSClassLibrary.pdb
+G:\Meet\SimsNew\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.csprojResolveAssemblyReference.cache
+G:\Meet\SimsNew\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.dll
+G:\Meet\SimsNew\SIMSClassLibrary\obj\Debug\SIMSClassLibrary.pdb

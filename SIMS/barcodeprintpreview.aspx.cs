@@ -21,11 +21,12 @@ namespace SIMS
                 {
                     System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
                     //objProductDetailsBLL.BarCodeNumber.Length * 14, 200
-                    using (Bitmap bitMap = new Bitmap(147, 179))
+                    //147, 179
+                    using (Bitmap bitMap = new Bitmap(objProductDetailsBLL.BarCodeNumber.Length * 40, 80))
                     {
                         using (Graphics graphics = Graphics.FromImage(bitMap))
                         {
-                            Font oFont = new Font("IDAutomationHC39M", 8);
+                            Font oFont = new Font("IDAutomationHC39M", 16, FontStyle.Regular);
                             Font oFontCalibri = new Font("Calibri", 12, FontStyle.Bold);
                             Font oFontHeading = new Font("Comic Sans MS", 20);
 
@@ -33,20 +34,20 @@ namespace SIMS
                             SolidBrush blackBrush = new SolidBrush(Color.Black);
                             SolidBrush whiteBrush = new SolidBrush(Color.White);
 
-                            //graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
+                            graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
                             //graphics.DrawString("Size: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 44);
                             //graphics.DrawString("MRP: " + objProductDetailsBLL.MRP, oFontCalibri, blackBrush, 0, 60);
                             //graphics.DrawString("Code:", oFontCalibri, blackBrush, 0, 76);
                             //graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 92);
-                            //graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, point);
+                            graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, point);
 
-                            graphics.DrawString("Magnifique", oFontHeading, blackBrush, 0, 0);
-                            graphics.DrawString("SIZE: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 40);
-                            graphics.DrawString("MRP: " + objProductDetailsBLL.MRP+ "₹" , oFontCalibri, blackBrush, 0, 57);
-                            graphics.DrawString("CODE:", oFontCalibri, blackBrush, 0, 74);
-                            graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 90);
-                            graphics.FillRectangle(whiteBrush, 0, 110, bitMap.Width, bitMap.Height);
-                            graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, 0, 110);
+                            //graphics.DrawString("Magnifique", oFontHeading, blackBrush, 0, 0);
+                            //graphics.DrawString("SIZE: " + objProductDetailsBLL.SizeName, oFontCalibri, blackBrush, 0, 40);
+                            //graphics.DrawString("MRP: " + objProductDetailsBLL.MRP + "₹", oFontCalibri, blackBrush, 0, 57);
+                            //graphics.DrawString("CODE:", oFontCalibri, blackBrush, 0, 74);
+                            //graphics.DrawString(objProductDetailsBLL.BarCodeNumber, oFontCalibri, blackBrush, 0, 90);
+                            //graphics.FillRectangle(whiteBrush, 0, 110, bitMap.Width, bitMap.Height);
+                            //graphics.DrawString("*" + objProductDetailsBLL.BarCodeNumber + "*", oFont, blackBrush, 0, 110);
                         }
                         using (MemoryStream ms = new MemoryStream())
                         {
@@ -70,6 +71,12 @@ namespace SIMS
 
                             Convert.ToBase64String(byteImage);
                             imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
+
+                            //bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            //byte[] byteImage = ms.ToArray();
+
+                            //Convert.ToBase64String(byteImage);
+                            //imgBarCode.ImageUrl = "data:image/Jpeg;base64," + Convert.ToBase64String(byteImage);
                         }
                         plBarCode.Controls.Add(imgBarCode);
                     }

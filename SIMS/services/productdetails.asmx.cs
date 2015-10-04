@@ -324,6 +324,25 @@ namespace SIMS.services
             }
         }
 
+        [WebMethod]
+        [ScriptMethod]
+        public string SaveInvoiceDetails(int UserID, ImvoiceMasterBLL InvoiceDetails, List<ProductBarCodeDetailsBLL> ProductDetails, CustomerMasterBLL CustomerDetails, List<TaxMasterBLL> TaxDetails)
+        {
+            try
+            {
+                if (!Utility.CommonUtility.CheckUserAuthenticated())
+                    return "fail";
+
+               
+                return "done";// Convert.ToString(TaxMasterBLL.TaxID);
+            }
+            catch (Exception ex)
+            {
+                //ValuePad.Utility.CommonUtility.SendErrorMail(ex);
+                return "fail";
+            }
+        }
+
 
     }
 }
